@@ -7,7 +7,7 @@
     "mcversion": "${mcversion}",
     "url": "",
     "updateUrl": "",
-    "authorList": [],
+    "authorList": ["Viktor Kainz", "Florian Angerer", "Fabian Reiterer"],
     "credits": "",
     "logoFile": "",
     "screenshots": [],
