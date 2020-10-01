@@ -1,11 +1,13 @@
 package at.htlkaindorf.levelup;
 
+import at.htlkaindorf.levelup.gui.LevelUpGUIHandler;
 import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(
         modid = LevelUp.MOD_ID,
@@ -33,6 +35,7 @@ public class LevelUp {
      */
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+        NetworkRegistry.INSTANCE.registerGuiHandler(this,new LevelUpGUIHandler());
 
     }
 
