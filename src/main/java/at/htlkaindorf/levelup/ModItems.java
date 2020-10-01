@@ -3,6 +3,7 @@ package at.htlkaindorf.levelup;
 import at.htlkaindorf.levelup.items.ItemBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
