@@ -16,7 +16,7 @@ public class BlockBase extends Block {
 
         this.name = name;
 
-        //setUnlocalizedName(name);
+        setTranslationKey(name);
         setRegistryName(name);
     }
 
