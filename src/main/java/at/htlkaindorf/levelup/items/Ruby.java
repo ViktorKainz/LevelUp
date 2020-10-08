@@ -7,6 +7,6 @@ public class Ruby extends Item {
     public Ruby(String name) {
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(CreativeTabs.MATERIALS);
     }
 }

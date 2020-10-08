@@ -9,7 +9,7 @@ public class RubySword extends ItemSword {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(CreativeTabs.COMBAT);
     }
 
 }

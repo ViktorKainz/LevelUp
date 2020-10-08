@@ -2,6 +2,7 @@ package at.htlkaindorf.levelup.init;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.items.Ruby;
+import at.htlkaindorf.levelup.items.RubyAxe;
 import at.htlkaindorf.levelup.items.RubySword;
 import at.htlkaindorf.levelup.materials.Materials;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -14,26 +15,30 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = LevelUp.MOD_ID)
 public class ModItems {
-    public static Item Ruby;
-    public static Item RubySword;
+    public static Item ruby;
+    public static Item rubySword;
+    public static Item rubyAxe;
 
     public static void init() {
-        Ruby = new Ruby("ruby");
-        RubySword = new RubySword(Materials.rubyToolMatMATERIAL, "ruby_sword");
+        ruby = new Ruby("ruby");
+        rubySword = new RubySword(Materials.rubyToolMatMATERIAL, "ruby_sword");
+        rubyAxe = new RubyAxe(Materials.rubyToolMatMATERIAL, "ruby_axe");
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                Ruby,
-                RubySword
+                ruby,
+                rubySword,
+                rubyAxe
         );
     }
 
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
-        registerRender(Ruby);
-        registerRender(RubySword);
+        registerRender(ruby);
+        registerRender(rubySword);
+        registerRender(rubyAxe);
     }
 
     private static void registerRender(Item item) {
