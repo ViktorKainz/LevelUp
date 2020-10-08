@@ -1,5 +1,6 @@
 package at.htlkaindorf.levelup;
 
+import at.htlkaindorf.levelup.client.LevelUpTab;
 import at.htlkaindorf.levelup.init.ModBlocks;
 import at.htlkaindorf.levelup.init.ModItems;
 import net.minecraftforge.fml.common.Mod;
@@ -18,6 +19,8 @@ public class LevelUp {
     public static final String MOD_ID = "levelup";
     public static final String MOD_NAME = "LevelUp";
     public static final String VERSION = "1.0";
+
+    public static final LevelUpTab LEVEL_UP_TAB = new LevelUpTab();
 
 
     @Mod.Instance(MOD_ID)
