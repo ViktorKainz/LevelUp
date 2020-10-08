@@ -1,9 +1,7 @@
 package at.htlkaindorf.levelup.init;
 
 import at.htlkaindorf.levelup.LevelUp;
-import at.htlkaindorf.levelup.items.Ruby;
-import at.htlkaindorf.levelup.items.RubyAxe;
-import at.htlkaindorf.levelup.items.RubySword;
+import at.htlkaindorf.levelup.items.*;
 import at.htlkaindorf.levelup.materials.Materials;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -18,11 +16,17 @@ public class ModItems {
     public static Item ruby;
     public static Item rubySword;
     public static Item rubyAxe;
+    public static Item rubyShovel;
+    public static Item rubyPickaxe;
+    public static Item rubyHoe;
 
     public static void init() {
         ruby = new Ruby("ruby");
         rubySword = new RubySword(Materials.rubyToolMatMATERIAL, "ruby_sword");
         rubyAxe = new RubyAxe(Materials.rubyToolMatMATERIAL, "ruby_axe");
+        rubyShovel = new RubyShovel(Materials.rubyToolMatMATERIAL, "ruby_shovel");
+        rubyPickaxe = new RubyPickaxe(Materials.rubyToolMatMATERIAL, "ruby_pickaxe");
+        rubyHoe = new RubyHoe(Materials.rubyToolMatMATERIAL, "ruby_hoe");
     }
 
     @SubscribeEvent
@@ -30,7 +34,10 @@ public class ModItems {
         event.getRegistry().registerAll(
                 ruby,
                 rubySword,
-                rubyAxe
+                rubyAxe,
+                rubyShovel,
+                rubyPickaxe,
+                rubyHoe
         );
     }
 
@@ -39,6 +46,9 @@ public class ModItems {
         registerRender(ruby);
         registerRender(rubySword);
         registerRender(rubyAxe);
+        registerRender(rubyShovel);
+        registerRender(rubyPickaxe);
+        registerRender(rubyHoe);
     }
 
     private static void registerRender(Item item) {

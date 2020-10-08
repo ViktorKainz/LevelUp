@@ -1,0 +1,14 @@
+package at.htlkaindorf.levelup.items;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemSpade;
+
+public class RubyShovel extends ItemSpade {
+
+    public RubyShovel(ToolMaterial material, String name) {
+        super(material);
+        setUnlocalizedName(name);
+        setRegistryName(name);
+        setCreativeTab(CreativeTabs.TOOLS);
+    }
+}
