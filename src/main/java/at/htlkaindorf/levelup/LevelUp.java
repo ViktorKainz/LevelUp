@@ -10,20 +10,20 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(
-        modid = LevelUp.MOD_ID,
-        name = LevelUp.MOD_NAME,
+        modid = LevelUp.MODID,
+        name = LevelUp.NAME,
         version = LevelUp.VERSION
 )
 public class LevelUp {
 
-    public static final String MOD_ID = "levelup";
-    public static final String MOD_NAME = "LevelUp";
+    public static final String MODID = "levelup";
+    public static final String NAME = "LevelUp";
     public static final String VERSION = "1.0";
 
     public static final LevelUpTab LEVEL_UP_TAB = new LevelUpTab();
 
 
-    @Mod.Instance(MOD_ID)
+    @Mod.Instance()
     public static LevelUp INSTANCE;
 
     private static Logger logger;

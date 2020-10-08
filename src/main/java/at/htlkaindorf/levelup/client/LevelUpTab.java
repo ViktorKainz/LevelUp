@@ -9,12 +9,17 @@ public class LevelUpTab extends CreativeTabs {
 
     public LevelUpTab()
     {
-        super(LevelUp.MOD_ID);
+        super(LevelUp.MODID);
         setNoTitle();
     }
 
     @Override
     public ItemStack getTabIconItem() {
         return new ItemStack(ModItems.Ruby);
+    }
+
+    @Override
+    public boolean hasSearchBar() {
+        return true;
     }
 }

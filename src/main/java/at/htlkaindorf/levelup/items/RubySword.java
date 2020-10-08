@@ -1,7 +1,6 @@
 package at.htlkaindorf.levelup.items;
 
 import at.htlkaindorf.levelup.LevelUp;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSword;
 
 public class RubySword extends ItemSword {
