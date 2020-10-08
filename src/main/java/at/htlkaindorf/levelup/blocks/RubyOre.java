@@ -1,21 +1,20 @@
 package at.htlkaindorf.levelup.blocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import scala.tools.nsc.Global;
+import scala.xml.dtd.impl.Base;
 
-public class RubyOre extends BlockBase {
+public class RubyOre extends Block {
 
-    public RubyOre(String name) {
-        super(Material.ROCK, name);
 
-        setHardness(3f);
-        setResistance(5f);
-    }
-
-    @Override
-    public RubyOre setCreativeTab(CreativeTabs tab) {
-        super.setCreativeTab(tab);
-        return this;
-    }
-
+   public RubyOre(String name)
+   {
+       super(Material.ROCK);
+       setCreativeTab(CreativeTabs.MISC);
+       setHarvestLevel("pickaxe", 6);
+       setHardness(3.5f);
+   }
 }

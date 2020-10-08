@@ -1,5 +1,6 @@
 package at.htlkaindorf.levelup;
 
+import at.htlkaindorf.levelup.init.ModBlocks;
 import at.htlkaindorf.levelup.init.ModItems;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -28,6 +29,7 @@ public class LevelUp {
     public void preinit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         ModItems.init();
+        ModBlocks.init();
     }
 
 
