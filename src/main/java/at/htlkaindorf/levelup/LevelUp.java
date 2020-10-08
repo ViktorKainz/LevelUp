@@ -1,10 +1,11 @@
 package at.htlkaindorf.levelup;
 
-import net.minecraftforge.fml.common.SidedProxy;
+import at.htlkaindorf.levelup.init.ModItems;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.Mod;
+import org.apache.logging.log4j.Logger;
 
 @Mod(
         modid = LevelUp.MOD_ID,
@@ -21,8 +22,12 @@ public class LevelUp {
     @Mod.Instance(MOD_ID)
     public static LevelUp INSTANCE;
 
+    private static Logger logger;
+
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+        logger = event.getModLog();
+        ModItems.init();
     }
 
 
