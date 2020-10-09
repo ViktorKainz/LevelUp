@@ -1,5 +1,6 @@
 package at.htlkaindorf.levelup.items.magma;
 
+import at.htlkaindorf.levelup.LevelUp;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSword;
 
@@ -9,7 +10,6 @@ public class MagmaSword extends ItemSword {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.COMBAT);
+        setCreativeTab(LevelUp.LEVEL_UP_TAB);
     }
-
 }

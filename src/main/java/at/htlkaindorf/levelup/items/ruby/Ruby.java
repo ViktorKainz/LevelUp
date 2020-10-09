@@ -1,4 +1,4 @@
-package at.htlkaindorf.levelup.items;
+package at.htlkaindorf.levelup.items.ruby;
 
 import at.htlkaindorf.levelup.LevelUp;
 import net.minecraft.item.Item;
