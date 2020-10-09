@@ -1,4 +1,4 @@
-package at.htlkaindorf.levelup.items;
+package at.htlkaindorf.levelup.items.ruby;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

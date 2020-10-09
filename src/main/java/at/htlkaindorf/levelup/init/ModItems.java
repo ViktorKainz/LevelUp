@@ -1,7 +1,7 @@
 package at.htlkaindorf.levelup.init;
 
 import at.htlkaindorf.levelup.LevelUp;
-import at.htlkaindorf.levelup.items.*;
+import at.htlkaindorf.levelup.items.ruby.*;
 import at.htlkaindorf.levelup.materials.Materials;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -19,6 +19,12 @@ public class ModItems {
     public static Item rubyShovel;
     public static Item rubyPickaxe;
     public static Item rubyHoe;
+    public static Item magmaIngot;
+    public static Item magmaSword;
+    public static Item magmaAxe;
+    public static Item magmaShovel;
+    public static Item magmaPickaxe;
+    public static Item magmaHoe;
 
     public static void init() {
         ruby = new Ruby("ruby");
@@ -27,6 +33,12 @@ public class ModItems {
         rubyShovel = new RubyShovel(Materials.rubyToolMatMATERIAL, "ruby_shovel");
         rubyPickaxe = new RubyPickaxe(Materials.rubyToolMatMATERIAL, "ruby_pickaxe");
         rubyHoe = new RubyHoe(Materials.rubyToolMatMATERIAL, "ruby_hoe");
+        magmaIngot = new Ruby("magma_ingot");
+        magmaSword = new RubySword(Materials.magmaToolMatMATERIAL, "magma_sword");
+        magmaAxe = new RubyAxe(Materials.magmaToolMatMATERIAL, "magma_axe");
+        magmaShovel = new RubyShovel(Materials.magmaToolMatMATERIAL, "magma_shovel");
+        magmaPickaxe = new RubyPickaxe(Materials.magmaToolMatMATERIAL, "magma_pickaxe");
+        magmaHoe = new RubyHoe(Materials.magmaToolMatMATERIAL, "magma_hoe");
     }
 
     @SubscribeEvent
@@ -37,7 +49,13 @@ public class ModItems {
                 rubyAxe,
                 rubyShovel,
                 rubyPickaxe,
-                rubyHoe
+                rubyHoe,
+                magmaIngot,
+                magmaSword,
+                magmaAxe,
+                magmaShovel,
+                magmaPickaxe,
+                magmaHoe
         );
     }
 
@@ -49,6 +67,12 @@ public class ModItems {
         registerRender(rubyShovel);
         registerRender(rubyPickaxe);
         registerRender(rubyHoe);
+        registerRender(magmaIngot);
+        registerRender(magmaSword);
+        registerRender(magmaAxe);
+        registerRender(magmaShovel);
+        registerRender(magmaPickaxe);
+        registerRender(magmaHoe);
     }
 
     private static void registerRender(Item item) {

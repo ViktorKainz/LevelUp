@@ -1,10 +1,11 @@
-package at.htlkaindorf.levelup.items;
+package at.htlkaindorf.levelup.items.ruby;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSpade;
 
-public class RubyPickaxe extends ItemPickaxe {
-    public RubyPickaxe(ToolMaterial material, String name) {
+public class RubyShovel extends ItemSpade {
+
+    public RubyShovel(ToolMaterial material, String name) {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);

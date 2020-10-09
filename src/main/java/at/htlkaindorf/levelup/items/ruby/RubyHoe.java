@@ -1,11 +1,10 @@
-package at.htlkaindorf.levelup.items;
+package at.htlkaindorf.levelup.items.ruby;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemHoe;
 
-public class RubyShovel extends ItemSpade {
-
-    public RubyShovel(ToolMaterial material, String name) {
+public class RubyHoe extends ItemHoe {
+    public RubyHoe(ToolMaterial material, String name) {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
