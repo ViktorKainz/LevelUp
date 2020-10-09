@@ -25,6 +25,12 @@ public class ModItems {
     public static Item magmaShovel;
     public static Item magmaPickaxe;
     public static Item magmaHoe;
+    public static Item enderIngot;
+    public static Item enderSword;
+    public static Item enderAxe;
+    public static Item enderShovel;
+    public static Item enderPickaxe;
+    public static Item enderHoe;
 
     public static void init() {
         ruby = new Ruby("ruby");
@@ -39,6 +45,12 @@ public class ModItems {
         magmaShovel = new RubyShovel(Materials.magmaToolMatMATERIAL, "magma_shovel");
         magmaPickaxe = new RubyPickaxe(Materials.magmaToolMatMATERIAL, "magma_pickaxe");
         magmaHoe = new RubyHoe(Materials.magmaToolMatMATERIAL, "magma_hoe");
+        enderIngot = new Ruby("ender_ingot");
+        enderSword = new RubySword(Materials.enderToolMatMATERIAL, "ender_sword");
+        enderAxe = new RubyAxe(Materials.enderToolMatMATERIAL, "ender_axe");
+        enderShovel = new RubyShovel(Materials.enderToolMatMATERIAL, "ender_shovel");
+        enderPickaxe = new RubyPickaxe(Materials.enderToolMatMATERIAL, "ender_pickaxe");
+        enderHoe = new RubyHoe(Materials.enderToolMatMATERIAL, "ender_hoe");
     }
 
     @SubscribeEvent
@@ -55,7 +67,13 @@ public class ModItems {
                 magmaAxe,
                 magmaShovel,
                 magmaPickaxe,
-                magmaHoe
+                magmaHoe,
+                enderIngot,
+                enderSword,
+                enderAxe,
+                enderShovel,
+                enderPickaxe,
+                enderHoe
         );
     }
 
@@ -73,6 +91,12 @@ public class ModItems {
         registerRender(magmaShovel);
         registerRender(magmaPickaxe);
         registerRender(magmaHoe);
+        registerRender(enderIngot);
+        registerRender(enderSword);
+        registerRender(enderAxe);
+        registerRender(enderShovel);
+        registerRender(enderPickaxe);
+        registerRender(enderHoe);
     }
 
     private static void registerRender(Item item) {
