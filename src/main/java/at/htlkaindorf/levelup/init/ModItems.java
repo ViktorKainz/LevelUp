@@ -1,7 +1,14 @@
 package at.htlkaindorf.levelup.init;
 
 import at.htlkaindorf.levelup.LevelUp;
-import at.htlkaindorf.levelup.items.ruby.*;
+import at.htlkaindorf.levelup.items.Ruby;
+import at.htlkaindorf.levelup.items.RubySword;
+import at.htlkaindorf.levelup.items.ender.*;
+import at.htlkaindorf.levelup.items.magma.*;
+import at.htlkaindorf.levelup.items.ruby.RubyAxe;
+import at.htlkaindorf.levelup.items.ruby.RubyHoe;
+import at.htlkaindorf.levelup.items.ruby.RubyPickaxe;
+import at.htlkaindorf.levelup.items.ruby.RubyShovel;
 import at.htlkaindorf.levelup.materials.Materials;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -39,18 +46,18 @@ public class ModItems {
         rubyShovel = new RubyShovel(Materials.rubyToolMatMATERIAL, "ruby_shovel");
         rubyPickaxe = new RubyPickaxe(Materials.rubyToolMatMATERIAL, "ruby_pickaxe");
         rubyHoe = new RubyHoe(Materials.rubyToolMatMATERIAL, "ruby_hoe");
-        magmaIngot = new Ruby("magma_ingot");
-        magmaSword = new RubySword(Materials.magmaToolMatMATERIAL, "magma_sword");
-        magmaAxe = new RubyAxe(Materials.magmaToolMatMATERIAL, "magma_axe");
-        magmaShovel = new RubyShovel(Materials.magmaToolMatMATERIAL, "magma_shovel");
-        magmaPickaxe = new RubyPickaxe(Materials.magmaToolMatMATERIAL, "magma_pickaxe");
-        magmaHoe = new RubyHoe(Materials.magmaToolMatMATERIAL, "magma_hoe");
-        enderIngot = new Ruby("ender_ingot");
-        enderSword = new RubySword(Materials.enderToolMatMATERIAL, "ender_sword");
-        enderAxe = new RubyAxe(Materials.enderToolMatMATERIAL, "ender_axe");
-        enderShovel = new RubyShovel(Materials.enderToolMatMATERIAL, "ender_shovel");
-        enderPickaxe = new RubyPickaxe(Materials.enderToolMatMATERIAL, "ender_pickaxe");
-        enderHoe = new RubyHoe(Materials.enderToolMatMATERIAL, "ender_hoe");
+        magmaIngot = new MagmaIngot("magma_ingot");
+        magmaSword = new MagmaSword(Materials.magmaToolMatMATERIAL, "magma_sword");
+        magmaAxe = new MagmaAxe(Materials.magmaToolMatMATERIAL, "magma_axe");
+        magmaShovel = new MagmaShovel(Materials.magmaToolMatMATERIAL, "magma_shovel");
+        magmaPickaxe = new MagmaPickaxe(Materials.magmaToolMatMATERIAL, "magma_pickaxe");
+        magmaHoe = new MagmaHoe(Materials.magmaToolMatMATERIAL, "magma_hoe");
+        enderIngot = new EnderIngot("ender_ingot");
+        enderSword = new EnderSword(Materials.enderToolMatMATERIAL, "ender_sword");
+        enderAxe = new EnderAxe(Materials.enderToolMatMATERIAL, "ender_axe");
+        enderShovel = new EnderShovel(Materials.enderToolMatMATERIAL, "ender_shovel");
+        enderPickaxe = new EnderPickaxe(Materials.enderToolMatMATERIAL, "ender_pickaxe");
+        enderHoe = new EnderHoe(Materials.enderToolMatMATERIAL, "ender_hoe");
     }
 
     @SubscribeEvent
