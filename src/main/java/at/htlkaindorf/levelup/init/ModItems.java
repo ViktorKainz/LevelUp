@@ -47,7 +47,7 @@ public class ModItems {
         magmaShovel = new MagmaShovel(Materials.magmaToolMatMATERIAL, "magma_shovel");
         magmaPickaxe = new MagmaPickaxe(Materials.magmaToolMatMATERIAL, "magma_pickaxe");
         magmaHoe = new MagmaHoe(Materials.magmaToolMatMATERIAL, "magma_hoe");
-        enderIngot = new EnderIngot("ender_ingot");
+        enderIngot = new EnderDiamond("ender_diamond");
         enderSword = new EnderSword(Materials.enderToolMatMATERIAL, "ender_sword");
         enderAxe = new EnderAxe(Materials.enderToolMatMATERIAL, "ender_axe");
         enderShovel = new EnderShovel(Materials.enderToolMatMATERIAL, "ender_shovel");
