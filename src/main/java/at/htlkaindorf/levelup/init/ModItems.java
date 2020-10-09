@@ -1,14 +1,9 @@
 package at.htlkaindorf.levelup.init;
 
 import at.htlkaindorf.levelup.LevelUp;
-import at.htlkaindorf.levelup.items.Ruby;
-import at.htlkaindorf.levelup.items.RubySword;
 import at.htlkaindorf.levelup.items.ender.*;
 import at.htlkaindorf.levelup.items.magma.*;
-import at.htlkaindorf.levelup.items.ruby.RubyAxe;
-import at.htlkaindorf.levelup.items.ruby.RubyHoe;
-import at.htlkaindorf.levelup.items.ruby.RubyPickaxe;
-import at.htlkaindorf.levelup.items.ruby.RubyShovel;
+import at.htlkaindorf.levelup.items.ruby.*;
 import at.htlkaindorf.levelup.materials.Materials;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

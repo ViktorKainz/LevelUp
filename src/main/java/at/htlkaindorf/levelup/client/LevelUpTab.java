@@ -15,7 +15,7 @@ public class LevelUpTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(ModItems.Ruby);
+        return new ItemStack(ModItems.ruby);
     }
 
     @Override
