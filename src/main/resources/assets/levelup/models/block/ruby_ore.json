@@ -1,5 +1,5 @@
 {
-  "parent": "block/generated",
+  "parent": "block/cube_all",
   "textures": {
     "layer0": "minecraft:items/ruby_ore"
   }

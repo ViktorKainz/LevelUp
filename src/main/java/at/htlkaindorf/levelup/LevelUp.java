@@ -3,10 +3,12 @@ package at.htlkaindorf.levelup;
 import at.htlkaindorf.levelup.client.LevelUpTab;
 import at.htlkaindorf.levelup.init.ModBlocks;
 import at.htlkaindorf.levelup.init.ModItems;
+import at.htlkaindorf.levelup.world.ModWorldGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 
 @Mod(
@@ -33,6 +35,7 @@ public class LevelUp {
         logger = event.getModLog();
         ModItems.init();
         ModBlocks.init();
+        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
     }
 
 
