@@ -2,7 +2,7 @@
   "forge_maker": 1,
   "defaults": {
     "textures": {
-      "all": "levelup:blocks/rubyore"
+      "all": "levelup:blocks/ruby_ore"
     }
   },
   "variants": {

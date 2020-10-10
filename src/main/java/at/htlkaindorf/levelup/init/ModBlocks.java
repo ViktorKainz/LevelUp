@@ -24,7 +24,7 @@ public class ModBlocks
 
     public static void init()
     {
-        rubyOre = new RubyOre("rubyOre");
+        rubyOre = new RubyOre("ruby_ore");
         rubyOreItem = new ItemBlock(ModBlocks.rubyOre);
     }
 
