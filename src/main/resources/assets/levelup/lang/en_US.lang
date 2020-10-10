@@ -1,4 +1,5 @@
 itemGroup.levelup=Level Up
+
 tile.ruby_ore.name=Ruby Ore
 item.ruby.name=Ruby
 item.ruby_sword.name=Ruby Sword
@@ -6,12 +7,18 @@ item.ruby_axe.name=Ruby Axe
 item.ruby_shovel.name=Ruby Shovel
 item.ruby_pickaxe.name=Ruby Pickaxe
 item.ruby_hoe.name=Ruby Hoe
+item.ruby_helmet.name=Ruby Helmet
+item.ruby_chestplate.name=Ruby Chestplate
+item.ruby_leggings.name=Ruby Leggins
+item.ruby_boots.name=Ruby Boots
+
 item.magma_ingot.name=Magma Ingot
 item.magma_sword.name=Magma Sword
 item.magma_axe.name=Magma Axe
 item.magma_shovel.name=Magma Shovel
 item.magma_pickaxe.name=Magma Pickaxe
 item.magma_hoe.name=Magma Hoe
+
 item.ender_diamond.name=Ender Diamond
 item.ender_sword.name=Ender Sword
 item.ender_axe.name=Ender Axe

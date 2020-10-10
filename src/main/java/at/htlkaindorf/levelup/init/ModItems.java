@@ -21,12 +21,18 @@ public class ModItems {
     public static Item rubyShovel;
     public static Item rubyPickaxe;
     public static Item rubyHoe;
+    public static Item rubyHelmet;
+    public static Item rubyChestplate;
+    public static Item rubyLeggings;
+    public static Item rubyBoots;
+
     public static Item magmaIngot;
     public static Item magmaSword;
     public static Item magmaAxe;
     public static Item magmaShovel;
     public static Item magmaPickaxe;
     public static Item magmaHoe;
+
     public static Item enderIngot;
     public static Item enderSword;
     public static Item enderAxe;
@@ -36,23 +42,29 @@ public class ModItems {
 
     public static void init() {
         ruby = new Ruby("ruby");
-        rubySword = new RubySword(Materials.rubyToolMatMATERIAL, "ruby_sword");
-        rubyAxe = new RubyAxe(Materials.rubyToolMatMATERIAL, "ruby_axe");
-        rubyShovel = new RubyShovel(Materials.rubyToolMatMATERIAL, "ruby_shovel");
-        rubyPickaxe = new RubyPickaxe(Materials.rubyToolMatMATERIAL, "ruby_pickaxe");
-        rubyHoe = new RubyHoe(Materials.rubyToolMatMATERIAL, "ruby_hoe");
+        rubySword = new RubySword(Materials.RUBY_TOOL_MATERIAL, "ruby_sword");
+        rubyAxe = new RubyAxe(Materials.RUBY_TOOL_MATERIAL, "ruby_axe");
+        rubyShovel = new RubyShovel(Materials.RUBY_TOOL_MATERIAL, "ruby_shovel");
+        rubyPickaxe = new RubyPickaxe(Materials.RUBY_TOOL_MATERIAL, "ruby_pickaxe");
+        rubyHoe = new RubyHoe(Materials.RUBY_TOOL_MATERIAL, "ruby_hoe");
+        rubyHelmet = new RubyHelmet(Materials.RUBY_ARMOR_MATERIAL, "ruby_helmet");
+        rubyChestplate = new RubyChestplate(Materials.RUBY_ARMOR_MATERIAL, "ruby_chestplate");
+        rubyLeggings = new RubyLeggings(Materials.RUBY_ARMOR_MATERIAL, "ruby_leggings");
+        rubyBoots = new RubyBoots(Materials.RUBY_ARMOR_MATERIAL, "ruby_boots");
+
         magmaIngot = new MagmaIngot("magma_ingot");
-        magmaSword = new MagmaSword(Materials.magmaToolMatMATERIAL, "magma_sword");
-        magmaAxe = new MagmaAxe(Materials.magmaToolMatMATERIAL, "magma_axe");
-        magmaShovel = new MagmaShovel(Materials.magmaToolMatMATERIAL, "magma_shovel");
-        magmaPickaxe = new MagmaPickaxe(Materials.magmaToolMatMATERIAL, "magma_pickaxe");
-        magmaHoe = new MagmaHoe(Materials.magmaToolMatMATERIAL, "magma_hoe");
+        magmaSword = new MagmaSword(Materials.MAGMA_TOOL_MATERIAL, "magma_sword");
+        magmaAxe = new MagmaAxe(Materials.MAGMA_TOOL_MATERIAL, "magma_axe");
+        magmaShovel = new MagmaShovel(Materials.MAGMA_TOOL_MATERIAL, "magma_shovel");
+        magmaPickaxe = new MagmaPickaxe(Materials.MAGMA_TOOL_MATERIAL, "magma_pickaxe");
+        magmaHoe = new MagmaHoe(Materials.MAGMA_TOOL_MATERIAL, "magma_hoe");
+
         enderIngot = new EnderDiamond("ender_diamond");
-        enderSword = new EnderSword(Materials.enderToolMatMATERIAL, "ender_sword");
-        enderAxe = new EnderAxe(Materials.enderToolMatMATERIAL, "ender_axe");
-        enderShovel = new EnderShovel(Materials.enderToolMatMATERIAL, "ender_shovel");
-        enderPickaxe = new EnderPickaxe(Materials.enderToolMatMATERIAL, "ender_pickaxe");
-        enderHoe = new EnderHoe(Materials.enderToolMatMATERIAL, "ender_hoe");
+        enderSword = new EnderSword(Materials.ENDER_TOOL_MATERIAL, "ender_sword");
+        enderAxe = new EnderAxe(Materials.ENDER_TOOL_MATERIAL, "ender_axe");
+        enderShovel = new EnderShovel(Materials.ENDER_TOOL_MATERIAL, "ender_shovel");
+        enderPickaxe = new EnderPickaxe(Materials.ENDER_TOOL_MATERIAL, "ender_pickaxe");
+        enderHoe = new EnderHoe(Materials.ENDER_TOOL_MATERIAL, "ender_hoe");
     }
 
     @SubscribeEvent
@@ -64,6 +76,10 @@ public class ModItems {
                 rubyShovel,
                 rubyPickaxe,
                 rubyHoe,
+                rubyHelmet,
+                rubyChestplate,
+                rubyLeggings,
+                rubyBoots,
                 magmaIngot,
                 magmaSword,
                 magmaAxe,
@@ -87,6 +103,10 @@ public class ModItems {
         registerRender(rubyShovel);
         registerRender(rubyPickaxe);
         registerRender(rubyHoe);
+        registerRender(rubyHelmet);
+        registerRender(rubyChestplate);
+        registerRender(rubyLeggings);
+        registerRender(rubyBoots);
         registerRender(magmaIngot);
         registerRender(magmaSword);
         registerRender(magmaAxe);
