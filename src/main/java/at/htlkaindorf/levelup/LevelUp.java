@@ -1,9 +1,13 @@
 package at.htlkaindorf.levelup;
 
+import at.htlkaindorf.levelup.capability.ExperienceStorage;
+import at.htlkaindorf.levelup.capability.IExperience;
+import at.htlkaindorf.levelup.capability.Experience;
 import at.htlkaindorf.levelup.client.LevelUpTab;
 import at.htlkaindorf.levelup.init.ModBlocks;
 import at.htlkaindorf.levelup.init.ModItems;
 import at.htlkaindorf.levelup.world.ModWorldGen;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -25,7 +29,7 @@ public class LevelUp {
     public static final LevelUpTab LEVEL_UP_TAB = new LevelUpTab();
 
 
-    @Mod.Instance()
+    @Mod.Instance
     public static LevelUp INSTANCE;
 
     private static Logger logger;
@@ -41,7 +45,7 @@ public class LevelUp {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
     }
 
     @Mod.EventHandler
