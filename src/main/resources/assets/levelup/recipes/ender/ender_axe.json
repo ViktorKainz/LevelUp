@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EE",
+    "ES",
+    " S"
+  ],
+  "key": {
+    "E": {
+      "item": "levelup:ender_diamond"
+    },
+    "S": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "item": "levelup:ender_axe"
+  }
+}
