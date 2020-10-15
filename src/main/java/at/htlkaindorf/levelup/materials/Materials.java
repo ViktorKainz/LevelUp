@@ -4,7 +4,6 @@ import at.htlkaindorf.levelup.LevelUp;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class Materials {
@@ -18,5 +17,9 @@ public class Materials {
 
     //ArmorMaterial
     public static final ArmorMaterial RUBY_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("RUBY",
-            LevelUp.MODID + ":ruby", 15, new int[] {3,8,6,3}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,0f);
+            LevelUp.MODID + ":ruby", 40, new int[]{4, 7, 9, 4}, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.5f); //comparison to diamond: DIAMOND("diamond", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F)
+    public static final ArmorMaterial MAGMA_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("MAGMA",
+            LevelUp.MODID + ":magma", 10, new int[]{2, 4, 6, 3}, 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0f); //comparison to gold: GOLD("gold", 7, new int[]{1, 3, 5, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F)
 }

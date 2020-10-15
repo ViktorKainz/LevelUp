@@ -18,6 +18,10 @@ item.magma_axe.name=Magma Axe
 item.magma_shovel.name=Magma Shovel
 item.magma_pickaxe.name=Magma Pickaxe
 item.magma_hoe.name=Magma Hoe
+item.magma_helmet.name=Magma Helmet
+item.magma_chestplate.name=Magma Chestplate
+item.magma_leggings.name=Magma Leggins
+item.magma_boots.name=Magma Boots
 
 item.ender_diamond.name=Ender Diamond
 item.ender_sword.name=Ender Sword
