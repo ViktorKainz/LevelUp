@@ -14,11 +14,8 @@ import java.util.Random;
 
 public class RubyOre extends Block {
 
-    private String name;
-
     public RubyOre(String name) {
         super(Material.ROCK);
-        this.name = name;
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -29,12 +26,12 @@ public class RubyOre extends Block {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return CommonProxy.items.get(name);
+        return CommonProxy.items.get(getRegistryName());
     }
 
     @Override
     protected ItemStack getSilkTouchDrop(IBlockState state) {
-        return new ItemStack(CommonProxy.items.get(name));
+        return new ItemStack(CommonProxy.items.get(getRegistryName()));
     }
 
     @Override

@@ -16,7 +16,7 @@ public class LevelUpTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(CommonProxy.items.get("ruby"));
+        return new ItemStack(CommonProxy.items.get("levelup:ruby"));
     }
 
     @Override
