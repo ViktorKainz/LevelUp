@@ -33,3 +33,14 @@ item.ender_helmet.name=Ender Helmet
 item.ender_chestplate.name=Ender Chestplate
 item.ender_leggings.name=Ender Leggins
 item.ender_boots.name=Ender Boots
+
+item.wither_ingot.name=Wither Ingot
+item.wither_sword.name=Wither Sword
+item.wither_axe.name=Wither Axe
+item.wither_shovel.name=Wither Shovel
+item.wither_pickaxe.name=Wither Pickaxe
+item.wither_hoe.name=Wither Hoe
+item.wither_helmet.name=Wither Helmet
+item.wither_chestplate.name=Wither Chestplate
+item.wither_leggings.name=Wither Leggins
+item.wither_boots.name=Wither Boots

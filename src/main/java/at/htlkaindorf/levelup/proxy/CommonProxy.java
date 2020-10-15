@@ -69,6 +69,17 @@ public class CommonProxy {
         items.put("ender_chestplate", new RubyChestplate(Materials.ENDER_ARMOR_MATERIAL, "ender_chestplate"));
         items.put("ender_leggings", new RubyLeggings(Materials.ENDER_ARMOR_MATERIAL, "ender_leggings"));
         items.put("ender_boots", new RubyBoots(Materials.ENDER_ARMOR_MATERIAL, "ender_boots"));
+
+        items.put("wither_ingot", new EnderDiamond("wither_ingot"));
+        items.put("wither_sword", new EnderSword(Materials.WITHER_TOOL_MATERIAL, "wither_sword"));
+        items.put("wither_axe", new EnderAxe(Materials.WITHER_TOOL_MATERIAL, "wither_axe"));
+        items.put("wither_shovel", new EnderShovel(Materials.WITHER_TOOL_MATERIAL, "wither_shovel"));
+        items.put("wither_pickaxe", new EnderPickaxe(Materials.WITHER_TOOL_MATERIAL, "wither_pickaxe"));
+        items.put("wither_hoe", new EnderHoe(Materials.WITHER_TOOL_MATERIAL, "wither_hoe"));
+        items.put("wither_helmet", new RubyHelmet(Materials.WITHER_ARMOR_MATERIAL, "wither_helmet"));
+        items.put("wither_chestplate", new RubyChestplate(Materials.WITHER_ARMOR_MATERIAL, "wither_chestplate"));
+        items.put("wither_leggings", new RubyLeggings(Materials.WITHER_ARMOR_MATERIAL, "wither_leggings"));
+        items.put("wither_boots", new RubyBoots(Materials.WITHER_ARMOR_MATERIAL, "wither_boots"));
     }
 
     @Mod.EventHandler
