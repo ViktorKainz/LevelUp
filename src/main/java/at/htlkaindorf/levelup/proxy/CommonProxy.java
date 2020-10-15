@@ -65,6 +65,10 @@ public class CommonProxy {
         items.put("ender_shovel", new EnderShovel(Materials.ENDER_TOOL_MATERIAL, "ender_shovel"));
         items.put("ender_pickaxe", new EnderPickaxe(Materials.ENDER_TOOL_MATERIAL, "ender_pickaxe"));
         items.put("ender_hoe", new EnderHoe(Materials.ENDER_TOOL_MATERIAL, "ender_hoe"));
+        items.put("ender_helmet", new RubyHelmet(Materials.ENDER_ARMOR_MATERIAL, "ender_helmet"));
+        items.put("ender_chestplate", new RubyChestplate(Materials.ENDER_ARMOR_MATERIAL, "ender_chestplate"));
+        items.put("ender_leggings", new RubyLeggings(Materials.ENDER_ARMOR_MATERIAL, "ender_leggings"));
+        items.put("ender_boots", new RubyBoots(Materials.ENDER_ARMOR_MATERIAL, "ender_boots"));
     }
 
     @Mod.EventHandler
