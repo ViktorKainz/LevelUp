@@ -5,6 +5,7 @@ import at.htlkaindorf.levelup.blocks.RubyOre;
 import at.htlkaindorf.levelup.items.ender.*;
 import at.htlkaindorf.levelup.items.magma.*;
 import at.htlkaindorf.levelup.items.ruby.*;
+import at.htlkaindorf.levelup.items.wither.*;
 import at.htlkaindorf.levelup.materials.Materials;
 import at.htlkaindorf.levelup.world.ModWorldGen;
 import net.minecraft.block.Block;
@@ -53,16 +54,10 @@ public class CommonProxy {
         addItem(new MagmaShovel(Materials.MAGMA_TOOL_MATERIAL, "magma_shovel"));
         addItem(new MagmaPickaxe(Materials.MAGMA_TOOL_MATERIAL, "magma_pickaxe"));
         addItem(new MagmaHoe(Materials.MAGMA_TOOL_MATERIAL, "magma_hoe"));
-        addItem(new MagmaIngot("magma_ingot"));
-        addItem(new MagmaSword(Materials.MAGMA_TOOL_MATERIAL, "magma_sword"));
-        addItem(new MagmaAxe(Materials.MAGMA_TOOL_MATERIAL, "magma_axe"));
-        addItem(new MagmaShovel(Materials.MAGMA_TOOL_MATERIAL, "magma_shovel"));
-        addItem(new MagmaPickaxe(Materials.MAGMA_TOOL_MATERIAL, "magma_pickaxe"));
-        addItem(new MagmaHoe(Materials.MAGMA_TOOL_MATERIAL, "magma_hoe"));
-        addItem(new RubyHelmet(Materials.MAGMA_ARMOR_MATERIAL, "magma_helmet"));
-        addItem(new RubyChestplate(Materials.MAGMA_ARMOR_MATERIAL, "magma_chestplate"));
-        addItem(new RubyLeggings(Materials.MAGMA_ARMOR_MATERIAL, "magma_leggings"));
-        addItem(new RubyBoots(Materials.MAGMA_ARMOR_MATERIAL, "magma_boots"));
+        addItem(new MagmaHelmet(Materials.MAGMA_ARMOR_MATERIAL, "magma_helmet"));
+        addItem(new MagmaChestplate(Materials.MAGMA_ARMOR_MATERIAL, "magma_chestplate"));
+        addItem(new MagmaLeggings(Materials.MAGMA_ARMOR_MATERIAL, "magma_leggings"));
+        addItem(new MagmaBoots(Materials.MAGMA_ARMOR_MATERIAL, "magma_boots"));
 
         addItem(new EnderDiamond("ender_diamond"));
         addItem(new EnderSword(Materials.ENDER_TOOL_MATERIAL, "ender_sword"));
@@ -70,27 +65,21 @@ public class CommonProxy {
         addItem(new EnderShovel(Materials.ENDER_TOOL_MATERIAL, "ender_shovel"));
         addItem(new EnderPickaxe(Materials.ENDER_TOOL_MATERIAL, "ender_pickaxe"));
         addItem(new EnderHoe(Materials.ENDER_TOOL_MATERIAL, "ender_hoe"));
-        addItem(new EnderDiamond("ender_diamond"));
-        addItem(new EnderSword(Materials.ENDER_TOOL_MATERIAL, "ender_sword"));
-        addItem(new EnderAxe(Materials.ENDER_TOOL_MATERIAL, "ender_axe"));
-        addItem(new EnderShovel(Materials.ENDER_TOOL_MATERIAL, "ender_shovel"));
-        addItem(new EnderPickaxe(Materials.ENDER_TOOL_MATERIAL, "ender_pickaxe"));
-        addItem(new EnderHoe(Materials.ENDER_TOOL_MATERIAL, "ender_hoe"));
-        addItem(new RubyHelmet(Materials.ENDER_ARMOR_MATERIAL, "ender_helmet"));
-        addItem(new RubyChestplate(Materials.ENDER_ARMOR_MATERIAL, "ender_chestplate"));
-        addItem(new RubyLeggings(Materials.ENDER_ARMOR_MATERIAL, "ender_leggings"));
-        addItem(RubyBoots(Materials.ENDER_ARMOR_MATERIAL, "ender_boots"));
+        addItem(new EnderHelmet(Materials.ENDER_ARMOR_MATERIAL, "ender_helmet"));
+        addItem(new EnderChestplate(Materials.ENDER_ARMOR_MATERIAL, "ender_chestplate"));
+        addItem(new EnderLeggings(Materials.ENDER_ARMOR_MATERIAL, "ender_leggings"));
+        addItem(new EnderBoots(Materials.ENDER_ARMOR_MATERIAL, "ender_boots"));
 
-        addItem(new EnderDiamond("wither_ingot"));
-        addItem(new EnderSword(Materials.WITHER_TOOL_MATERIAL, "wither_sword"));
-        addItem(new EnderAxe(Materials.WITHER_TOOL_MATERIAL, "wither_axe"));
-        addItem(new EnderShovel(Materials.WITHER_TOOL_MATERIAL, "wither_shovel"));
-        addItem(new EnderPickaxe(Materials.WITHER_TOOL_MATERIAL, "wither_pickaxe"));
-        addItem(new EnderHoe(Materials.WITHER_TOOL_MATERIAL, "wither_hoe"));
-        addItem(new RubyHelmet(Materials.WITHER_ARMOR_MATERIAL, "wither_helmet"));
-        addItem(new RubyChestplate(Materials.WITHER_ARMOR_MATERIAL, "wither_chestplate"));
-        addItem(new RubyLeggings(Matrials.WITHER_ARMOR_MATERIAL, "wither_leggings"));
-        addItem(new RubyBoots(Materials.WITHER_ARMOR_MATERIAL, "wither_boots"));
+        addItem(new WitherIngot("wither_ingot"));
+        addItem(new WitherSword(Materials.WITHER_TOOL_MATERIAL, "wither_sword"));
+        addItem(new WitherAxe(Materials.WITHER_TOOL_MATERIAL, "wither_axe"));
+        addItem(new WitherShovel(Materials.WITHER_TOOL_MATERIAL, "wither_shovel"));
+        addItem(new WitherPickaxe(Materials.WITHER_TOOL_MATERIAL, "wither_pickaxe"));
+        addItem(new WitherHoe(Materials.WITHER_TOOL_MATERIAL, "wither_hoe"));
+        addItem(new WitherHelmet(Materials.WITHER_ARMOR_MATERIAL, "wither_helmet"));
+        addItem(new WitherChestplate(Materials.WITHER_ARMOR_MATERIAL, "wither_chestplate"));
+        addItem(new WitherLeggings(Materials.WITHER_ARMOR_MATERIAL, "wither_leggings"));
+        addItem(new WitherBoots(Materials.WITHER_ARMOR_MATERIAL, "wither_boots"));
     }
 
     @Mod.EventHandler
