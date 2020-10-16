@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "MMM",
-    "M M"
+    "EEE",
+    "E E"
   ],
   "key": {
-    "M": {
-      "item": "levelup:magma_ingot"
+    "E": {
+      "item": "levelup:ender_diamond"
     }
   },
   "result": {
-    "item": "levelup:magma_helmet"
+    "item": "levelup:ender_helmet"
   }
 }
