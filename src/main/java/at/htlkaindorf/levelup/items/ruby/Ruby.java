@@ -5,9 +5,11 @@ import net.minecraft.item.Item;
 
 public class Ruby extends Item {
 
-    public Ruby(String name) {
-        setUnlocalizedName(name);
-        setRegistryName(name);
+    public static final String NAME = "ruby";
+
+    public Ruby() {
+        setUnlocalizedName(NAME);
+        setRegistryName(NAME);
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
     }
 }

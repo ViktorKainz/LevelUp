@@ -14,11 +14,13 @@ import java.util.Random;
 
 public class RubyOre extends Block {
 
-    public RubyOre(String name) {
+    public static final String NAME = "ruby_ore";
+
+    public RubyOre() {
         super(Material.ROCK);
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
-        setUnlocalizedName(name);
-        setRegistryName(name);
+        setUnlocalizedName(NAME);
+        setRegistryName(NAME);
         setHarvestLevel("pickaxe", 2);
         setHardness(3f);
         setSoundType(SoundType.STONE);

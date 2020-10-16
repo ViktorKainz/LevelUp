@@ -5,9 +5,11 @@ import net.minecraft.item.Item;
 
 public class WitherIngot extends Item {
 
-    public WitherIngot(String name) {
-        setUnlocalizedName(name);
-        setRegistryName(name);
+    public static final String NAME = "wither_ingot";
+
+    public WitherIngot() {
+        setUnlocalizedName(NAME);
+        setRegistryName(NAME);
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
     }
 }
