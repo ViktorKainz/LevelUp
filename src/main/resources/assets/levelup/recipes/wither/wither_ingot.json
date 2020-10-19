@@ -10,7 +10,8 @@
       "item": "minecraft:iron_ingot"
     },
     "S": {
-      "item": "minecraft:skull"
+      "item": "minecraft:skull",
+      "data": 1
     }
   },
   "result": {
