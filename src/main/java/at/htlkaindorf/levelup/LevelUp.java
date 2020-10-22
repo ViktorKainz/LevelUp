@@ -4,11 +4,9 @@ import at.htlkaindorf.levelup.capability.ExperienceStorage;
 import at.htlkaindorf.levelup.capability.IExperience;
 import at.htlkaindorf.levelup.capability.Experience;
 import at.htlkaindorf.levelup.client.LevelUpTab;
-import at.htlkaindorf.levelup.init.ModBlocks;
-import at.htlkaindorf.levelup.init.ModItems;
-import at.htlkaindorf.levelup.world.ModWorldGen;
-import net.minecraftforge.common.capabilities.CapabilityManager;
+import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -28,18 +26,18 @@ public class LevelUp {
 
     public static final LevelUpTab LEVEL_UP_TAB = new LevelUpTab();
 
+    @SidedProxy(clientSide = "at.htlkaindorf.levelup.proxy.ClientProxy",
+                serverSide = "at.htlkaindorf.levelup.proxy.ServerProxy")
+    public static CommonProxy proxy;
 
-    @Mod.Instance
+    @Mod.Instance()
     public static LevelUp INSTANCE;
 
     private static Logger logger;
 
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
-        ModItems.init();
-        ModBlocks.init();
-        GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+        proxy.preinit(event);
     }
 
 
@@ -50,6 +48,6 @@ public class LevelUp {
 
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-
+        proxy.postinit(event);
     }
 }

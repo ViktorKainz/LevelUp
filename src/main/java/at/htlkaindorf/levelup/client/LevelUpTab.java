@@ -1,9 +1,10 @@
 package at.htlkaindorf.levelup.client;
 
 import at.htlkaindorf.levelup.LevelUp;
-import at.htlkaindorf.levelup.init.ModItems;
+import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
 public class LevelUpTab extends CreativeTabs {
 
@@ -15,7 +16,7 @@ public class LevelUpTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(ModItems.ruby);
+        return new ItemStack(CommonProxy.items.get("levelup:ruby"));
     }
 
     @Override

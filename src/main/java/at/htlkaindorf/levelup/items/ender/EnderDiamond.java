@@ -5,9 +5,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class EnderDiamond extends Item {
-    public EnderDiamond(String name) {
-        setUnlocalizedName(name);
-        setRegistryName(name);
+
+    public static final String NAME = "ender_diamond";
+
+    public EnderDiamond() {
+        setUnlocalizedName(NAME);
+        setRegistryName(NAME);
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
     }
 }

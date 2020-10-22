@@ -5,9 +5,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class MagmaIngot extends Item {
-    public MagmaIngot(String name) {
-        setUnlocalizedName(name);
-        setRegistryName(name);
+
+    public static final String NAME = "magma_ingot";
+
+    public MagmaIngot() {
+        setUnlocalizedName(NAME);
+        setRegistryName(NAME);
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
     }
 }
