@@ -21,9 +21,9 @@ public class EventHandler
         EntityPlayer player = event.player;
         IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
 
-        player.addPotionEffect(new PotionEffect(Potion.getPotionById(8194)));
-        String message = String.format("Hello there, you have §7%d§r experience.", (int) experience.getExperience());
-        player.sendMessage(new TextComponentString(message));
+        //player.addPotionEffect(new PotionEffect(Potion.getPotionById(8194)));
+        //String message = String.format("Hello there, you have §7%d§r experience.", (int) experience.getExperience());
+        //player.sendMessage(new TextComponentString(message));
     }
 
     @SubscribeEvent
