@@ -2,11 +2,11 @@ package at.htlkaindorf.levelup.proxy;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.blocks.RubyOre;
+import at.htlkaindorf.levelup.client.gui.GuiHandler;
 import at.htlkaindorf.levelup.items.ender.*;
 import at.htlkaindorf.levelup.items.magma.*;
 import at.htlkaindorf.levelup.items.ruby.*;
 import at.htlkaindorf.levelup.items.wither.*;
-import at.htlkaindorf.levelup.materials.Materials;
 import at.htlkaindorf.levelup.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -80,6 +81,8 @@ public class CommonProxy {
         addItem(new WitherChestplate());
         addItem(new WitherLeggings());
         addItem(new WitherBoots());
+
+        MinecraftForge.EVENT_BUS.register(new GuiHandler());
     }
 
     @Mod.EventHandler
