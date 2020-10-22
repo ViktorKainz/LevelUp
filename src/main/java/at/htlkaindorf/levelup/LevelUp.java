@@ -5,12 +5,12 @@ import at.htlkaindorf.levelup.capability.IExperience;
 import at.htlkaindorf.levelup.capability.Experience;
 import at.htlkaindorf.levelup.client.LevelUpTab;
 import at.htlkaindorf.levelup.proxy.CommonProxy;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 
 @Mod(
