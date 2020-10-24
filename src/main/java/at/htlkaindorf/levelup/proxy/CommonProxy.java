@@ -2,7 +2,7 @@ package at.htlkaindorf.levelup.proxy;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.blocks.RubyOre;
-import at.htlkaindorf.levelup.capability.EventHandler;
+import at.htlkaindorf.levelup.capability.*;
 import at.htlkaindorf.levelup.items.ender.*;
 import at.htlkaindorf.levelup.items.magma.*;
 import at.htlkaindorf.levelup.items.ruby.*;
@@ -15,6 +15,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -82,6 +83,8 @@ public class CommonProxy {
         addItem(new WitherLeggings());
         addItem(new WitherBoots());
 
+        CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
+        MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
     }
 
@@ -116,10 +119,6 @@ public class CommonProxy {
 
     private static void registerRender(Item item) {
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-    }
-
-    private static void registerRender(ItemBlock itemblock) {
-        ModelLoader.setCustomModelResourceLocation(itemblock, 0, new ModelResourceLocation(itemblock.getRegistryName(), "inventory"));
     }
 
     private void addBlock(Block b) {

@@ -1,11 +1,7 @@
 package at.htlkaindorf.levelup;
 
-import at.htlkaindorf.levelup.capability.ExperienceStorage;
-import at.htlkaindorf.levelup.capability.IExperience;
-import at.htlkaindorf.levelup.capability.Experience;
 import at.htlkaindorf.levelup.client.LevelUpTab;
 import at.htlkaindorf.levelup.proxy.CommonProxy;
-import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -43,7 +39,7 @@ public class LevelUp {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
+        proxy.init(event);
     }
 
     @Mod.EventHandler

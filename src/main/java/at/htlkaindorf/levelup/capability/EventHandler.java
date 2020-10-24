@@ -2,6 +2,7 @@ package at.htlkaindorf.levelup.capability;
 
 import at.htlkaindorf.levelup.LevelUp;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerCapabilities;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextComponentString;
@@ -17,13 +18,10 @@ public class EventHandler
     @SubscribeEvent
     public void onPlayerLogsIn(PlayerLoggedInEvent event)
     {
-        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<Login");
         EntityPlayer player = event.player;
         IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
-
-        //player.addPotionEffect(new PotionEffect(Potion.getPotionById(8194)));
-        //String message = String.format("Hello there, you have §7%d§r experience.", (int) experience.getExperience());
-        //player.sendMessage(new TextComponentString(message));
+        String message = String.format("Hello there, you have %d experience.", (int) experience.getExperience());
+        player.sendMessage(new TextComponentString(message));
     }
 
     @SubscribeEvent

@@ -12,7 +12,7 @@ public class CapabilityHandler {
 
     @SubscribeEvent
     public void attachCapability(AttachCapabilitiesEvent event) {
-        if (!(event.getObject() instanceof EntityPlayer)) {
+        if (event.getObject() instanceof EntityPlayer) {
             event.addCapability(EXPERIENCE_CAP, new ExperienceProvider());
         }
     }
