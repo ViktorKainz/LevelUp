@@ -1,8 +1,8 @@
 package at.htlkaindorf.levelup.capability;
 
 public interface IExperience {
-    void add(int points);
-    void set(int points);
-    int getExperience();
-    int getLevel();
+    void add(ExperienceType type, int points);
+    void set(ExperienceType type, int points);
+    int getExperience(ExperienceType type);
+    int getLevel(ExperienceType type);
 }
