@@ -7,6 +7,7 @@ import at.htlkaindorf.levelup.items.ender.*;
 import at.htlkaindorf.levelup.items.magma.*;
 import at.htlkaindorf.levelup.items.ruby.*;
 import at.htlkaindorf.levelup.items.wither.*;
+import at.htlkaindorf.levelup.recipes.CraftingHandler;
 import at.htlkaindorf.levelup.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -94,6 +95,7 @@ public class CommonProxy {
 
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
+        CraftingHandler.replaceRecipes();
     }
 
     @SubscribeEvent
