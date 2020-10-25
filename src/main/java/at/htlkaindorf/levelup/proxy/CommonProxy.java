@@ -6,6 +6,9 @@ import at.htlkaindorf.levelup.capability.*;
 import at.htlkaindorf.levelup.capability.experience.Experience;
 import at.htlkaindorf.levelup.capability.experience.ExperienceStorage;
 import at.htlkaindorf.levelup.capability.experience.IExperience;
+import at.htlkaindorf.levelup.capability.skillpoint.ISkillPoint;
+import at.htlkaindorf.levelup.capability.skillpoint.SkillPoint;
+import at.htlkaindorf.levelup.capability.skillpoint.SkillPointStorage;
 import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
 import at.htlkaindorf.levelup.capability.unlocked.Unlocked;
 import at.htlkaindorf.levelup.capability.unlocked.UnlockedStorage;
@@ -92,6 +95,7 @@ public class CommonProxy {
 
         CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
         CapabilityManager.INSTANCE.register(IUnlocked.class, new UnlockedStorage(), Unlocked::new);
+        CapabilityManager.INSTANCE.register(ISkillPoint.class, new SkillPointStorage(), SkillPoint::new);
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
     }

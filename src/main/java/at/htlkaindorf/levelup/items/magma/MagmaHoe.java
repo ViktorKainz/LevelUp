@@ -2,8 +2,9 @@ package at.htlkaindorf.levelup.items.magma;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.materials.Materials;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
 
 public class MagmaHoe extends ItemHoe {
 
@@ -14,5 +15,11 @@ public class MagmaHoe extends ItemHoe {
         setUnlocalizedName(NAME);
         setRegistryName(NAME);
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+        target.setFire(4);
+        return super.hitEntity(stack, target, attacker);
     }
 }
