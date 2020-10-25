@@ -1,4 +1,4 @@
-package at.htlkaindorf.levelup.capability;
+package at.htlkaindorf.levelup.capability.experience;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;

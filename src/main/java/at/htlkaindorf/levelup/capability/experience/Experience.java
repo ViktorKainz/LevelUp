@@ -1,4 +1,4 @@
-package at.htlkaindorf.levelup.capability;
+package at.htlkaindorf.levelup.capability.experience;
 
 import java.util.HashMap;
 import java.util.Map;

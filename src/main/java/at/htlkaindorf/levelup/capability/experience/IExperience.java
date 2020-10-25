@@ -1,4 +1,4 @@
-package at.htlkaindorf.levelup.capability;
+package at.htlkaindorf.levelup.capability.experience;
 
 public interface IExperience {
     void add(ExperienceType type, int points);

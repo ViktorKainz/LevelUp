@@ -1,7 +1,7 @@
 package at.htlkaindorf.levelup.recipes;
 
-import at.htlkaindorf.levelup.capability.IUnlocked;
-import at.htlkaindorf.levelup.capability.UnlockedProvider;
+import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
+import at.htlkaindorf.levelup.capability.unlocked.UnlockedProvider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.crafting.IRecipe;

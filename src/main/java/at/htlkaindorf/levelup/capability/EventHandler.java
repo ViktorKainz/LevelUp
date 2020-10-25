@@ -1,6 +1,11 @@
 package at.htlkaindorf.levelup.capability;
 
 import at.htlkaindorf.levelup.LevelUp;
+import at.htlkaindorf.levelup.capability.experience.ExperienceProvider;
+import at.htlkaindorf.levelup.capability.experience.ExperienceType;
+import at.htlkaindorf.levelup.capability.experience.IExperience;
+import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
+import at.htlkaindorf.levelup.capability.unlocked.UnlockedProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
