@@ -52,6 +52,9 @@ public class EventHandler
 
     @SubscribeEvent
     public void pickupItem(EntityItemPickupEvent event) {
-        System.out.println("Item picked up!");
+        EntityPlayer player = event.getEntityPlayer();
+        IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP, null);
+        unlocked.add(event.getItem().getItem().getItem().getRegistryName());
+        player.sendMessage(new TextComponentString(event.getItem().getItem().getItem().getRegistryName().getResourcePath() + " unlocked"));
     }
 }

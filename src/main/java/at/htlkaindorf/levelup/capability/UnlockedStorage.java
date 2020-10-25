@@ -1,0 +1,30 @@
+package at.htlkaindorf.levelup.capability;
+
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.capabilities.Capability;
+
+public class UnlockedStorage implements Capability.IStorage<IUnlocked>{
+
+    @Override
+    public NBTBase writeNBT(Capability<IUnlocked> capability, IUnlocked instance, EnumFacing side) {
+        NBTTagList tag = new NBTTagList();
+        for(ResourceLocation resource : instance.get()) {
+            tag.appendTag(new NBTTagString(resource.toString()));
+        }
+        return tag;
+    }
+
+    @Override
+    public void readNBT(Capability<IUnlocked> capability, IUnlocked instance, EnumFacing side, NBTBase nbt) {
+        NBTTagList tag = (NBTTagList) nbt;
+        for(NBTBase resource : tag) {
+            NBTTagString string = (NBTTagString) resource;
+            System.out.println(string.getString());
+            instance.add(new ResourceLocation(string.getString()));
+        }
+    }
+}

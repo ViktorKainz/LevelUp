@@ -85,6 +85,7 @@ public class CommonProxy {
         addItem(new WitherBoots());
 
         CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
+        CapabilityManager.INSTANCE.register(IUnlocked.class, new UnlockedStorage(), Unlocked::new);
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
     }

@@ -1,9 +1,5 @@
 package at.htlkaindorf.levelup.recipes;
 
-import at.htlkaindorf.levelup.capability.ExperienceProvider;
-import at.htlkaindorf.levelup.capability.ExperienceType;
-import at.htlkaindorf.levelup.capability.IExperience;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -21,8 +17,6 @@ public class ShapedUnlockable extends ShapedRecipes {
 
     @Override
     public boolean matches(InventoryCrafting inv, World worldIn) {
-        EntityPlayer player = CraftingHandler.findPlayer(inv);
-        IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
-        return experience.getExperience(ExperienceType.Mining) > 10 ? super.matches(inv, worldIn) : false;
+        return CheckRecipe.isUnlocked(this, inv) ? super.matches(inv, worldIn) : false;
     }
 }

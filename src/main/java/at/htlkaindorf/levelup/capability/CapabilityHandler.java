@@ -9,11 +9,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CapabilityHandler {
 
     public static final ResourceLocation EXPERIENCE_CAP = new ResourceLocation(LevelUp.MODID, "experience");
+    public static final ResourceLocation UNLOCKED_CAP = new ResourceLocation(LevelUp.MODID, "unlocked");
 
     @SubscribeEvent
     public void attachCapability(AttachCapabilitiesEvent event) {
         if (event.getObject() instanceof EntityPlayer) {
             event.addCapability(EXPERIENCE_CAP, new ExperienceProvider());
+            event.addCapability(UNLOCKED_CAP, new UnlockedProvider());
         }
     }
 }
