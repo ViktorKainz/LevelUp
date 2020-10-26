@@ -12,7 +12,6 @@ import at.htlkaindorf.levelup.materials.Materials;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -31,7 +30,6 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -52,6 +50,8 @@ public class EventHandler {
             player.sendMessage(new TextComponentString(
                     String.format("You have %d  %s experience.", experience.getExperience(type), type)));
         }
+        IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP,null);
+        unlocked.add("Stone Tools");
     }
 
     @SubscribeEvent
@@ -172,13 +172,5 @@ public class EventHandler {
                 ((EntityLiving) source.getImmediateSource()).addPotionEffect(new PotionEffect(MobEffects.WITHER, 20, 1));
             }
         }
-    }
-
-    @SubscribeEvent
-    public void pickupItem(EntityItemPickupEvent event) {
-        EntityPlayer player = event.getEntityPlayer();
-        IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP, null);
-        unlocked.add(event.getItem().getItem().getItem().getRegistryName());
-        player.sendMessage(new TextComponentString(event.getItem().getItem().getItem().getRegistryName().getResourcePath() + " unlocked"));
     }
 }

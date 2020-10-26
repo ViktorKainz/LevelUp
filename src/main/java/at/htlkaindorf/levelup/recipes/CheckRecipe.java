@@ -1,5 +1,6 @@
 package at.htlkaindorf.levelup.recipes;
 
+import at.htlkaindorf.levelup.capability.Group;
 import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
 import at.htlkaindorf.levelup.capability.unlocked.UnlockedProvider;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,7 +35,12 @@ public class CheckRecipe {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
         if(player != null) {
             IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP, null);
-            return unlocked.isUnlocked(r.getRecipeOutput().getItem().getRegistryName());
+            for(Group g : Group.groups) {
+                if(unlocked.isUnlocked(g.getName()) && g.getItems().contains(r.getRegistryName())) {
+                    return true;
+                }
+            }
+            return false;
         }
         return true;
     }

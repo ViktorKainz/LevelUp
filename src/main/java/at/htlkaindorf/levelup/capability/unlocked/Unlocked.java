@@ -7,20 +7,20 @@ import java.util.List;
 
 public class Unlocked implements IUnlocked{
 
-    private List<ResourceLocation> unlocked = new ArrayList<>();
+    private List<String> unlocked = new ArrayList<>();
 
     @Override
-    public void add(ResourceLocation resource) {
+    public void add(String resource) {
         unlocked.add(resource);
     }
 
     @Override
-    public boolean isUnlocked(ResourceLocation resource) {
+    public boolean isUnlocked(String resource) {
         return unlocked.contains(resource);
     }
 
     @Override
-    public List<ResourceLocation> get() {
+    public List<String> get() {
         return unlocked;
     }
 }

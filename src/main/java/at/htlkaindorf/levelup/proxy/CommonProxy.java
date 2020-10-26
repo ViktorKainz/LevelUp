@@ -98,6 +98,8 @@ public class CommonProxy {
         CapabilityManager.INSTANCE.register(ISkillPoint.class, new SkillPointStorage(), SkillPoint::new);
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
+
+        ModConfig.init();
     }
 
     @Mod.EventHandler

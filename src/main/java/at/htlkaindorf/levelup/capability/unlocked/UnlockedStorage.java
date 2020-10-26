@@ -12,8 +12,8 @@ public class UnlockedStorage implements Capability.IStorage<IUnlocked>{
     @Override
     public NBTBase writeNBT(Capability<IUnlocked> capability, IUnlocked instance, EnumFacing side) {
         NBTTagList tag = new NBTTagList();
-        for(ResourceLocation resource : instance.get()) {
-            tag.appendTag(new NBTTagString(resource.toString()));
+        for(String group : instance.get()) {
+            tag.appendTag(new NBTTagString(group));
         }
         return tag;
     }
@@ -23,7 +23,7 @@ public class UnlockedStorage implements Capability.IStorage<IUnlocked>{
         NBTTagList tag = (NBTTagList) nbt;
         for(NBTBase resource : tag) {
             NBTTagString string = (NBTTagString) resource;
-            instance.add(new ResourceLocation(string.getString()));
+            instance.add(string.getString());
         }
     }
 }
