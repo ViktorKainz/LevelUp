@@ -23,16 +23,16 @@ public class MagmaHelmet extends ItemArmor {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack item) {
-        if (player.inventory.armorItemInSlot(0) != null &&
-                player.inventory.armorItemInSlot(1) != null &&
-                player.inventory.armorItemInSlot(2) != null &&
-                player.inventory.armorItemInSlot(3) != null &&
-                player.inventory.armorItemInSlot(0).getItem().getRegistryName().getResourcePath().equals(MagmaBoots.NAME) &&
-                player.inventory.armorItemInSlot(1).getItem().getRegistryName().getResourcePath().equals(MagmaLeggings.NAME) &&
-                player.inventory.armorItemInSlot(2).getItem().getRegistryName().getResourcePath().equals(MagmaChestplate.NAME) &&
-                player.inventory.armorItemInSlot(3).getItem().getRegistryName().getResourcePath().equals(MagmaHelmet.NAME)) {
-            player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 2, 3));
+        if (fullArmor(player)) {
+            player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 1, 3, false, false));
         }
+    }
+
+    public static boolean fullArmor(EntityPlayer player) {
+        return player.inventory.armorItemInSlot(0).getItem().getRegistryName().getResourcePath().equals(MagmaBoots.NAME) &&
+               player.inventory.armorItemInSlot(1).getItem().getRegistryName().getResourcePath().equals(MagmaLeggings.NAME) &&
+               player.inventory.armorItemInSlot(2).getItem().getRegistryName().getResourcePath().equals(MagmaChestplate.NAME) &&
+               player.inventory.armorItemInSlot(3).getItem().getRegistryName().getResourcePath().equals(MagmaHelmet.NAME);
     }
 }
 
