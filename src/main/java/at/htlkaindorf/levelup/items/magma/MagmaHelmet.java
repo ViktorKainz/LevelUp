@@ -30,9 +30,9 @@ public class MagmaHelmet extends ItemArmor {
 
     public static boolean fullArmor(EntityPlayer player) {
         return player.inventory.armorItemInSlot(0).getItem().getRegistryName().getResourcePath().equals(MagmaBoots.NAME) &&
-               player.inventory.armorItemInSlot(1).getItem().getRegistryName().getResourcePath().equals(MagmaLeggings.NAME) &&
-               player.inventory.armorItemInSlot(2).getItem().getRegistryName().getResourcePath().equals(MagmaChestplate.NAME) &&
-               player.inventory.armorItemInSlot(3).getItem().getRegistryName().getResourcePath().equals(MagmaHelmet.NAME);
+                player.inventory.armorItemInSlot(1).getItem().getRegistryName().getResourcePath().equals(MagmaLeggings.NAME) &&
+                player.inventory.armorItemInSlot(2).getItem().getRegistryName().getResourcePath().equals(MagmaChestplate.NAME) &&
+                player.inventory.armorItemInSlot(3).getItem().getRegistryName().getResourcePath().equals(MagmaHelmet.NAME);
     }
 }
 

@@ -1,6 +1,7 @@
 package at.htlkaindorf.levelup.items.magma;
 
 import at.htlkaindorf.levelup.LevelUp;
+import at.htlkaindorf.levelup.items.HitEffects;
 import at.htlkaindorf.levelup.materials.Materials;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemSpade;
@@ -19,7 +20,7 @@ public class MagmaShovel extends ItemSpade {
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        target.setFire(4);
+        HitEffects.onHitMagma(stack, target, attacker);
         return super.hitEntity(stack, target, attacker);
     }
 }

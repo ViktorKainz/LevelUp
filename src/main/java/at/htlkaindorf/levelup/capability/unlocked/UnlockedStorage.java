@@ -23,7 +23,6 @@ public class UnlockedStorage implements Capability.IStorage<IUnlocked>{
         NBTTagList tag = (NBTTagList) nbt;
         for(NBTBase resource : tag) {
             NBTTagString string = (NBTTagString) resource;
-            System.out.println(string.getString());
             instance.add(new ResourceLocation(string.getString()));
         }
     }
