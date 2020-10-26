@@ -1,0 +1,6 @@
+{
+  "parent": "levelup:block/sapphire_ore",
+  "textures": {
+    "all": "levelup:blocks/sapphire_ore"
+  }
+}

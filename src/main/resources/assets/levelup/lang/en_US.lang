@@ -12,6 +12,18 @@ item.ruby_chestplate.name=Ruby Chestplate
 item.ruby_leggings.name=Ruby Leggings
 item.ruby_boots.name=Ruby Boots
 
+tile.sapphire_ore.name=Sapphire Ore
+item.sapphire.name=Sapphire
+item.sapphire_sword.name=Sapphire Sword
+item.sapphire_axe.name=Sapphire Axe
+item.sapphire_shovel.name=Sapphire Shovel
+item.sapphire_pickaxe.name=Sapphire Pickaxe
+item.sapphire_hoe.name=Sapphire Hoe
+item.sapphire_helmet.name=Sapphire Helmet
+item.sapphire_chestplate.name=Sapphire Chestplate
+item.sapphire_leggings.name=Sapphire Leggings
+item.sapphire_boots.name=Sapphire Boots
+
 item.magma_ingot.name=Magma Ingot
 item.magma_sword.name=Magma Sword
 item.magma_axe.name=Magma Axe

@@ -2,6 +2,7 @@ package at.htlkaindorf.levelup.proxy;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.blocks.RubyOre;
+import at.htlkaindorf.levelup.blocks.SapphireOre;
 import at.htlkaindorf.levelup.capability.*;
 import at.htlkaindorf.levelup.capability.experience.Experience;
 import at.htlkaindorf.levelup.capability.experience.ExperienceStorage;
@@ -15,6 +16,7 @@ import at.htlkaindorf.levelup.capability.unlocked.UnlockedStorage;
 import at.htlkaindorf.levelup.items.ender.*;
 import at.htlkaindorf.levelup.items.magma.*;
 import at.htlkaindorf.levelup.items.ruby.*;
+import at.htlkaindorf.levelup.items.sapphire.*;
 import at.htlkaindorf.levelup.items.wither.*;
 import at.htlkaindorf.levelup.recipes.CraftingHandler;
 import at.htlkaindorf.levelup.world.ModWorldGen;
@@ -48,6 +50,7 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 
         addBlock(new RubyOre());
+        addBlock(new SapphireOre());
 
         addItem(new Ruby());
         addItem(new RubySword());
@@ -59,6 +62,17 @@ public class CommonProxy {
         addItem(new RubyChestplate());
         addItem(new RubyLeggings());
         addItem(new RubyBoots());
+
+        addItem(new Sapphire());
+        addItem(new SapphireSword());
+        addItem(new SapphireAxe());
+        addItem(new SapphireShovel());
+        addItem(new SapphirePickaxe());
+        addItem(new SapphireHoe());
+        addItem(new SapphireHelmet());
+        addItem(new SapphireChestplate());
+        addItem(new SapphireLeggings());
+        addItem(new SapphireBoots());
 
         addItem(new MagmaIngot());
         addItem(new MagmaSword());

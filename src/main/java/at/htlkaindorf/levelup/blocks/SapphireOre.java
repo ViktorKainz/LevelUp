@@ -8,15 +8,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
 import java.util.Random;
 
-public class RubyOre extends Block {
+public class SapphireOre extends Block {
 
-    public static final String NAME = "ruby_ore";
+    public static final String NAME = "sapphire_ore";
 
-    public RubyOre() {
+    public SapphireOre() {
         super(Material.ROCK);
         setCreativeTab(LevelUp.LEVEL_UP_TAB);
         setUnlocalizedName(NAME);
@@ -28,7 +27,7 @@ public class RubyOre extends Block {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return CommonProxy.items.get("levelup:ruby");
+        return CommonProxy.items.get("levelup:sapphire");
     }
 
     @Override

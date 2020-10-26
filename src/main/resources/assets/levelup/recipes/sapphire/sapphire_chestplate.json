@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "R R",
+    "RRR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "levelup:sapphire"
+    }
+  },
+  "result": {
+    "item": "levelup:sapphire_chestplate"
+  }
+}
