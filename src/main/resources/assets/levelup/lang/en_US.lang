@@ -1,6 +1,7 @@
 itemGroup.levelup=Level Up
 
 tile.ruby_ore.name=Ruby Ore
+tile.ruby_block.name=Ruby Block
 item.ruby.name=Ruby
 item.ruby_sword.name=Ruby Sword
 item.ruby_axe.name=Ruby Axe
@@ -13,6 +14,7 @@ item.ruby_leggings.name=Ruby Leggings
 item.ruby_boots.name=Ruby Boots
 
 tile.sapphire_ore.name=Sapphire Ore
+tile.sapphire_block.name=Sapphire Block
 item.sapphire.name=Sapphire
 item.sapphire_sword.name=Sapphire Sword
 item.sapphire_axe.name=Sapphire Axe

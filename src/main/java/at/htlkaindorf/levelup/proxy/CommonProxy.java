@@ -1,7 +1,9 @@
 package at.htlkaindorf.levelup.proxy;
 
 import at.htlkaindorf.levelup.LevelUp;
+import at.htlkaindorf.levelup.blocks.RubyBlock;
 import at.htlkaindorf.levelup.blocks.RubyOre;
+import at.htlkaindorf.levelup.blocks.SapphireBlock;
 import at.htlkaindorf.levelup.blocks.SapphireOre;
 import at.htlkaindorf.levelup.capability.*;
 import at.htlkaindorf.levelup.capability.experience.Experience;
@@ -50,7 +52,9 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 
         addBlock(new RubyOre());
+        addBlock(new RubyBlock());
         addBlock(new SapphireOre());
+        addBlock(new SapphireBlock());
 
         addItem(new Ruby());
         addItem(new RubySword());
