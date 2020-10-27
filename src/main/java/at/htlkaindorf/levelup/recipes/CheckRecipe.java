@@ -1,6 +1,6 @@
 package at.htlkaindorf.levelup.recipes;
 
-import at.htlkaindorf.levelup.capability.Group;
+import at.htlkaindorf.levelup.config.Group;
 import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
 import at.htlkaindorf.levelup.capability.unlocked.UnlockedProvider;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,6 +1,7 @@
 package at.htlkaindorf.levelup.blocks;
 
 import at.htlkaindorf.levelup.LevelUp;
+import at.htlkaindorf.levelup.items.ruby.Ruby;
 import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -28,7 +29,7 @@ public class RubyOre extends Block {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return CommonProxy.items.get("levelup:ruby");
+        return CommonProxy.items.get(LevelUp.MODID + Ruby.NAME);
     }
 
     @Override

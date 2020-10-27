@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "R R",
+    "R R"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "item": "levelup:emerald_boots"
+  }
+}

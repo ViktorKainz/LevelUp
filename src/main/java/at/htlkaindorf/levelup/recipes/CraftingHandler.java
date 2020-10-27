@@ -1,6 +1,6 @@
 package at.htlkaindorf.levelup.recipes;
 
-import at.htlkaindorf.levelup.capability.Group;
+import at.htlkaindorf.levelup.config.Group;
 import com.google.common.collect.Lists;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;

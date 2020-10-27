@@ -1,6 +1,5 @@
 package at.htlkaindorf.levelup;
 
-import at.htlkaindorf.levelup.capability.Group;
 import at.htlkaindorf.levelup.client.LevelUpTab;
 import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
