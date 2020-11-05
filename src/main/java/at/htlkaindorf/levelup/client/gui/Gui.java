@@ -1,23 +1,33 @@
 package at.htlkaindorf.levelup.client.gui;
 
+import at.htlkaindorf.levelup.client.gui.guiobject.RewardButton;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.gui.GuiScreen;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Gui extends GuiScreen {
     private GuiButton mButtonClose;
+    private GuiButton mButtonFarming;
+    private GuiButton mButtonCrafting;
+    private GuiButton mButtonMining;
+    private GuiButton mButtonWoodcutting;
+    private GuiButton mButtonFighting;
     private GuiLabel mLabel;
+    private List<RewardButton> buttons = new LinkedList<>();
 
     @Override
     public void initGui() {
         super.initGui();
-        buttonList.add(mButtonClose = new GuiButton(0, width / 2 - 100,
-                height - (height / 4) + 10, "Close"));
-        labelList.add(mLabel = new GuiLabel(fontRenderer, 1,
-                width / 2 - 20, height / 2 + 40, 300, 10, 0xFFFFFF));
-        mLabel.addLine("Test Line");
+        buttonList.add(mButtonFarming = new GuiButton(1,width/2-100,50, "Farming Skills"));
+        buttonList.add(mButtonCrafting = new GuiButton(2,width/2-100, 150, "Crafting Skills"));
+        buttonList.add(mButtonMining = new GuiButton(3,width/2-100, 250, "Mining Skills"));
+        buttonList.add(mButtonWoodcutting = new GuiButton(4,width/2-100,350, "Woodcutting Skills"));
+        buttonList.add(mButtonFighting = new GuiButton(5, width/2-100,450, "Fighting Skills"));
+        buttonList.add(mButtonClose = new GuiButton(0,width/2-100,550, "Close"));
     }
 
     @Override
