@@ -22,12 +22,13 @@ public class Gui extends GuiScreen {
     @Override
     public void initGui() {
         super.initGui();
-        buttonList.add(mButtonFarming = new GuiButton(1,width/2-100,50, "Farming Skills"));
-        buttonList.add(mButtonCrafting = new GuiButton(2,width/2-100, 150, "Crafting Skills"));
-        buttonList.add(mButtonMining = new GuiButton(3,width/2-100, 250, "Mining Skills"));
-        buttonList.add(mButtonWoodcutting = new GuiButton(4,width/2-100,350, "Woodcutting Skills"));
-        buttonList.add(mButtonFighting = new GuiButton(5, width/2-100,450, "Fighting Skills"));
-        buttonList.add(mButtonClose = new GuiButton(0,width/2-100,550, "Close"));
+
+        buttonList.add(mButtonFarming = new GuiButton(1,width/2-100,height/16*4, "Farming Skills"));
+        buttonList.add(mButtonCrafting = new GuiButton(2,width/2-100, height/16*5, "Crafting Skills"));
+        buttonList.add(mButtonMining = new GuiButton(3,width/2-100, height/16*6, "Mining Skills"));
+        buttonList.add(mButtonWoodcutting = new GuiButton(4,width/2-100,height/16*7, "Woodcutting Skills"));
+        buttonList.add(mButtonFighting = new GuiButton(5, width/2-100,height/16*8, "Fighting Skills"));
+        buttonList.add(mButtonClose = new GuiButton(0,width/2-100,height/16*9, "Close"));
     }
 
     @Override
