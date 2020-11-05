@@ -10,17 +10,14 @@ public class Gui extends GuiScreen {
     private GuiButton mButtonClose;
     private GuiLabel mLabel;
 
-
     @Override
     public void initGui() {
         super.initGui();
-        this.buttonList.add(mButtonClose = new GuiButton(0, this.width / 2 - 100,
-                this.height - (this.height / 4) + 10, "Close"));
-        this.labelList.add(mLabel = new GuiLabel(fontRenderer, 1,
-                this.width / 2 - 20, this.height / 2 + 40, 300, 10, 0xFFFFFF));
+        buttonList.add(mButtonClose = new GuiButton(0, width / 2 - 100,
+                height - (height / 4) + 10, "Close"));
+        labelList.add(mLabel = new GuiLabel(fontRenderer, 1,
+                width / 2 - 20, height / 2 + 40, 300, 10, 0xFFFFFF));
         mLabel.addLine("Test Line");
-        this.drawWorldBackground(0x000000);
-
     }
 
     @Override
@@ -33,5 +30,11 @@ public class Gui extends GuiScreen {
     @Override
     public boolean doesGuiPauseGame() {
         return true;
+    }
+
+    @Override
+    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+        drawDefaultBackground();
+        super.drawScreen(mouseX, mouseY, partialTicks);
     }
 }

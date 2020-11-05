@@ -94,6 +94,7 @@ public class EventHandler {
                     if (smelted.getItem().getRegistryName().getResourcePath().equals("air")) {
                         event.getDrops().add(i);
                     } else {
+                        smelted.setCount(i.getCount());
                         event.getDrops().add(smelted);
                     }
                 });
