@@ -6,8 +6,7 @@ import java.util.Map;
 public class Experience implements IExperience {
 
     private Map<ExperienceType, Integer> experience = new HashMap<>();
-    private int baseLevel = 100;
-    private float factor = 1.1f;
+    private int baseLevel = 250;
 
     @Override
     public void add(ExperienceType type, int points) {
@@ -30,7 +29,7 @@ public class Experience implements IExperience {
         int e;
         do {
             l++;
-            e = baseLevel * (int)Math.pow(factor,l);
+            e = baseLevel * l;
         } while(experience.get(type) > e);
         return l;
     }

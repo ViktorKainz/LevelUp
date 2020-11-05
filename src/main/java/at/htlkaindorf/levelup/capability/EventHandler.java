@@ -30,6 +30,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -48,10 +49,19 @@ public class EventHandler {
         IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
         for (ExperienceType type : ExperienceType.values()) {
             player.sendMessage(new TextComponentString(
-                    String.format("You have %d  %s experience.", experience.getExperience(type), type)));
+                    String.format("You have %d %s experience.", experience.getExperience(type), type)));
         }
         IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP,null);
         unlocked.add("Stone Tools");
+    }
+
+    @SubscribeEvent
+    public void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
+        EntityPlayer player = event.player;
+        IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
+        experience.add(ExperienceType.Crafting, 1);
+        player.sendMessage(new TextComponentString(
+                String.format("You have %d %s experience.", experience.getExperience(ExperienceType.Crafting), ExperienceType.Crafting)));
     }
 
     @SubscribeEvent
@@ -66,6 +76,24 @@ public class EventHandler {
     }
 
     @SubscribeEvent
+    public void onUseHoe(UseHoeEvent event) {
+        EntityPlayer player = event.getEntityPlayer();
+        IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
+        experience.add(ExperienceType.Farming, 1);
+        player.sendMessage(new TextComponentString(
+                String.format("You have %d %s experience.", experience.getExperience(ExperienceType.Farming), ExperienceType.Farming)));
+    }
+
+    @SubscribeEvent
+    public void onBlockBreak(BlockEvent.PlaceEvent event) {
+        EntityPlayer player = event.getPlayer();
+        IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
+        experience.add(ExperienceType.Building, 1);
+        player.sendMessage(new TextComponentString(
+                String.format("You have %d %s experience.", experience.getExperience(ExperienceType.Building), ExperienceType.Building)));
+    }
+
+    @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
         Block block = event.getState().getBlock();
@@ -73,7 +101,7 @@ public class EventHandler {
             IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
             experience.add(ExperienceType.Mining, 1);
             player.sendMessage(new TextComponentString(
-                    String.format("You have %d  %s experience.", experience.getExperience(ExperienceType.Mining), ExperienceType.Mining)));
+                    String.format("You have %d %s experience.", experience.getExperience(ExperienceType.Mining), ExperienceType.Mining)));
         }
     }
 
@@ -172,6 +200,13 @@ public class EventHandler {
             } else if (WitherHelmet.fullArmor(player) && source.getImmediateSource() instanceof EntityLiving) {
                 ((EntityLiving) source.getImmediateSource()).addPotionEffect(new PotionEffect(MobEffects.WITHER, 20, 1));
             }
+        }
+        if(event.getSource().getTrueSource() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+            IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
+            experience.add(ExperienceType.Fighting, 1);
+            player.sendMessage(new TextComponentString(
+                    String.format("You have %d %s experience.", experience.getExperience(ExperienceType.Fighting), ExperienceType.Fighting)));
         }
     }
 }
