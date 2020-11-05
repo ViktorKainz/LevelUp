@@ -5,6 +5,5 @@ public enum ExperienceType {
     Crafting,
     Farming,
     Building,
-    Fighting,
-    Enchanting
+    Fighting
 }
