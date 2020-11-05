@@ -35,7 +35,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -128,13 +127,12 @@ public class CommonProxy {
         addItem(new WitherLeggings());
         addItem(new WitherBoots());
 
-        MinecraftForge.EVENT_BUS.register(new GuiHandler());
-
         CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
         CapabilityManager.INSTANCE.register(IUnlocked.class, new UnlockedStorage(), Unlocked::new);
         CapabilityManager.INSTANCE.register(ISkillPoint.class, new SkillPointStorage(), SkillPoint::new);
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
+        MinecraftForge.EVENT_BUS.register(new GuiHandler());
 
         ModConfig.init();
     }
