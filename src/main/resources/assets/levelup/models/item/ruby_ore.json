@@ -1,6 +1,6 @@
 {
   "parent": "levelup:block/ruby_ore",
   "textures": {
-    "all": "minecraft:block/ruby_ore"
+    "all": "levelup:blocks/ruby_ore"
   }
 }

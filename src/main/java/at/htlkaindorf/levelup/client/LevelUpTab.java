@@ -23,4 +23,6 @@ public class LevelUpTab extends CreativeTabs {
     public boolean hasSearchBar() {
         return true;
     }
+
+
 }

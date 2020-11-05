@@ -1,6 +1,7 @@
 itemGroup.levelup=Level Up
 
 tile.ruby_ore.name=Ruby Ore
+tile.ruby_block.name=Ruby Block
 item.ruby.name=Ruby
 item.ruby_sword.name=Ruby Sword
 item.ruby_axe.name=Ruby Axe
@@ -11,6 +12,29 @@ item.ruby_helmet.name=Ruby Helmet
 item.ruby_chestplate.name=Ruby Chestplate
 item.ruby_leggings.name=Ruby Leggings
 item.ruby_boots.name=Ruby Boots
+
+tile.sapphire_ore.name=Sapphire Ore
+tile.sapphire_block.name=Sapphire Block
+item.sapphire.name=Sapphire
+item.sapphire_sword.name=Sapphire Sword
+item.sapphire_axe.name=Sapphire Axe
+item.sapphire_shovel.name=Sapphire Shovel
+item.sapphire_pickaxe.name=Sapphire Pickaxe
+item.sapphire_hoe.name=Sapphire Hoe
+item.sapphire_helmet.name=Sapphire Helmet
+item.sapphire_chestplate.name=Sapphire Chestplate
+item.sapphire_leggings.name=Sapphire Leggings
+item.sapphire_boots.name=Sapphire Boots
+
+item.emerald_sword.name=Emerald Sword
+item.emerald_axe.name=Emerald Axe
+item.emerald_shovel.name=Emerald Shovel
+item.emerald_pickaxe.name=Emerald Pickaxe
+item.emerald_hoe.name=Emerald Hoe
+item.emerald_helmet.name=Emerald Helmet
+item.emerald_chestplate.name=Emerald Chestplate
+item.emerald_leggings.name=Emerald Leggings
+item.emerald_boots.name=Emerald Boots
 
 item.magma_ingot.name=Magma Ingot
 item.magma_sword.name=Magma Sword

@@ -3,10 +3,30 @@ package at.htlkaindorf.levelup.proxy;
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.blocks.RubyOre;
 import at.htlkaindorf.levelup.client.gui.GuiHandler;
+import at.htlkaindorf.levelup.blocks.*;
+import at.htlkaindorf.levelup.capability.*;
+import at.htlkaindorf.levelup.capability.experience.*;
+import at.htlkaindorf.levelup.capability.skillpoint.*;
+import at.htlkaindorf.levelup.capability.unlocked.*;
+import at.htlkaindorf.levelup.config.ModConfig;
+import at.htlkaindorf.levelup.items.emerald.armor.*;
+import at.htlkaindorf.levelup.items.emerald.tools.*;
 import at.htlkaindorf.levelup.items.ender.*;
+import at.htlkaindorf.levelup.items.ender.armor.*;
+import at.htlkaindorf.levelup.items.ender.tools.*;
 import at.htlkaindorf.levelup.items.magma.*;
+import at.htlkaindorf.levelup.items.magma.armor.*;
+import at.htlkaindorf.levelup.items.magma.tools.*;
 import at.htlkaindorf.levelup.items.ruby.*;
+import at.htlkaindorf.levelup.items.ruby.armor.*;
+import at.htlkaindorf.levelup.items.ruby.tools.*;
+import at.htlkaindorf.levelup.items.sapphire.*;
+import at.htlkaindorf.levelup.items.sapphire.armor.*;
+import at.htlkaindorf.levelup.items.sapphire.tools.*;
 import at.htlkaindorf.levelup.items.wither.*;
+import at.htlkaindorf.levelup.items.wither.armor.*;
+import at.htlkaindorf.levelup.items.wither.tools.*;
+import at.htlkaindorf.levelup.recipes.CraftingHandler;
 import at.htlkaindorf.levelup.world.ModWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -15,6 +35,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -37,6 +59,9 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 
         addBlock(new RubyOre());
+        addBlock(new RubyBlock());
+        addBlock(new SapphireOre());
+        addBlock(new SapphireBlock());
 
         addItem(new Ruby());
         addItem(new RubySword());
@@ -48,6 +73,27 @@ public class CommonProxy {
         addItem(new RubyChestplate());
         addItem(new RubyLeggings());
         addItem(new RubyBoots());
+
+        addItem(new Sapphire());
+        addItem(new SapphireSword());
+        addItem(new SapphireAxe());
+        addItem(new SapphireShovel());
+        addItem(new SapphirePickaxe());
+        addItem(new SapphireHoe());
+        addItem(new SapphireHelmet());
+        addItem(new SapphireChestplate());
+        addItem(new SapphireLeggings());
+        addItem(new SapphireBoots());
+
+        addItem(new EmeraldSword());
+        addItem(new EmeraldAxe());
+        addItem(new EmeraldShovel());
+        addItem(new EmeraldPickaxe());
+        addItem(new EmeraldHoe());
+        addItem(new EmeraldHelmet());
+        addItem(new EmeraldChestplate());
+        addItem(new EmeraldLeggings());
+        addItem(new EmeraldBoots());
 
         addItem(new MagmaIngot());
         addItem(new MagmaSword());
@@ -83,6 +129,14 @@ public class CommonProxy {
         addItem(new WitherBoots());
 
         MinecraftForge.EVENT_BUS.register(new GuiHandler());
+
+        CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
+        CapabilityManager.INSTANCE.register(IUnlocked.class, new UnlockedStorage(), Unlocked::new);
+        CapabilityManager.INSTANCE.register(ISkillPoint.class, new SkillPointStorage(), SkillPoint::new);
+        MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+        MinecraftForge.EVENT_BUS.register(new EventHandler());
+
+        ModConfig.init();
     }
 
     @Mod.EventHandler
@@ -91,6 +145,7 @@ public class CommonProxy {
 
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
+        CraftingHandler.replaceRecipes();
     }
 
     @SubscribeEvent

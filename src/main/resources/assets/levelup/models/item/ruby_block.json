@@ -1,0 +1,6 @@
+{
+  "parent": "levelup:block/ruby_block",
+  "textures": {
+    "all": "levelup:blocks/ruby_block"
+  }
+}
