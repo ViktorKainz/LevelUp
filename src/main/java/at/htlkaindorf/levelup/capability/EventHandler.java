@@ -52,7 +52,7 @@ public class EventHandler {
                     String.format("You have %d %s experience.", experience.getExperience(type), type)));
         }
         IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP,null);
-        unlocked.add("Stone Tools");
+        unlocked.add("Better Wood");
     }
 
     @SubscribeEvent

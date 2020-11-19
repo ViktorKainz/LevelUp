@@ -19,28 +19,35 @@ public class CraftingHandler {
 
         for (IRecipe r : recipes) {
             boolean unlockable = false;
+            boolean customAmount = false;
             groups:
-            for (Group g : Group.groups) {
+            for (Group g : Group.groups.values()) {
                 for (ResourceLocation location : g.getItems()) {
-                    if(r.getRegistryName().equals(location)) {
+                    if (r.getRegistryName().equals(location)) {
                         unlockable = true;
                         break groups;
                     }
                 }
+                for (ResourceLocation location : g.getAmounts().keySet()) {
+                    if (r.getRegistryName().equals(location)) {
+                        customAmount = true;
+                        break groups;
+                    }
+                }
             }
-            if(!unlockable) {
+            if (!unlockable && !customAmount) {
                 continue;
             }
             if (r instanceof ShapedRecipes) {
                 ShapedRecipes shaped = (ShapedRecipes) r;
                 recipeRegistry.remove(r.getRegistryName());
                 recipeRegistry.register(new ShapedUnlockable(shaped.getGroup(), shaped.getWidth(), shaped.getHeight(),
-                        shaped.getIngredients(), shaped.getRecipeOutput(), shaped.getRegistryName().toString()));
+                        shaped.getIngredients(), shaped.getRecipeOutput(), shaped.getRegistryName().toString(),customAmount));
             } else if (r instanceof ShapelessRecipes) {
                 ShapelessRecipes shapeless = (ShapelessRecipes) r;
                 recipeRegistry.remove(r.getRegistryName());
                 recipeRegistry.register(new ShapelessUnlockable(shapeless.getGroup(), shapeless.getRecipeOutput(),
-                        shapeless.getIngredients(), shapeless.getRegistryName().toString()));
+                        shapeless.getIngredients(), shapeless.getRegistryName().toString(),customAmount));
             }
         }
     }

@@ -10,13 +10,21 @@ import net.minecraft.world.World;
 
 public class ShapedUnlockable extends ShapedRecipes {
 
-    public ShapedUnlockable(String group, int width, int height, NonNullList<Ingredient> ingredients, ItemStack result, String name) {
+    private boolean unlocked;
+
+    public ShapedUnlockable(String group, int width, int height, NonNullList<Ingredient> ingredients, ItemStack result, String name, boolean unlocked) {
         super(group, width, height, ingredients, result);
         this.setRegistryName(name);
+        this.unlocked = unlocked;
     }
 
     @Override
     public boolean matches(InventoryCrafting inv, World worldIn) {
-        return CheckRecipe.isUnlocked(this, inv) ? super.matches(inv, worldIn) : false;
+        return unlocked || CheckRecipe.isUnlocked(this, inv) ? super.matches(inv, worldIn) : false;
+    }
+
+    @Override
+    public ItemStack getCraftingResult(InventoryCrafting inv) {
+        return CheckRecipe.getCraftingResult(this, inv, super.getCraftingResult(inv));
     }
 }

@@ -5,6 +5,7 @@ import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
 import at.htlkaindorf.levelup.capability.unlocked.UnlockedProvider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
@@ -33,15 +34,29 @@ public class CheckRecipe {
 
     public static boolean isUnlocked(IRecipe r, InventoryCrafting inv) {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
-        if(player != null) {
+        if (player != null) {
             IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP, null);
-            for(Group g : Group.groups) {
-                if(unlocked.isUnlocked(g.getName()) && g.getItems().contains(r.getRegistryName())) {
+            for (Group g : Group.groups.values()) {
+                if (unlocked.isUnlocked(g.getName()) && g.getItems().contains(r.getRegistryName())) {
                     return true;
                 }
             }
             return false;
         }
         return true;
+    }
+
+    public static ItemStack getCraftingResult(IRecipe r, InventoryCrafting inv, ItemStack stack) {
+        EntityPlayer player = CheckRecipe.findPlayer(inv);
+        if (player != null) {
+            IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP, null);
+            for (Group g : Group.groups.values()) {
+                if (unlocked.isUnlocked(g.getName()) && g.getAmounts().containsKey(r.getRegistryName())) {
+                    stack.setCount(g.getAmounts().get(r.getRegistryName()));
+                    break;
+                }
+            }
+        }
+        return stack;
     }
 }

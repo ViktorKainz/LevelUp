@@ -9,13 +9,21 @@ import net.minecraft.world.World;
 
 public class ShapelessUnlockable extends ShapelessRecipes {
 
-    public ShapelessUnlockable(String group, ItemStack output, NonNullList<Ingredient> ingredients, String name) {
+    private boolean unlocked;
+
+    public ShapelessUnlockable(String group, ItemStack output, NonNullList<Ingredient> ingredients, String name, boolean unlocked) {
         super(group, output, ingredients);
         this.setRegistryName(name);
+        this.unlocked = unlocked;
     }
 
     @Override
     public boolean matches(InventoryCrafting inv, World worldIn) {
-        return CheckRecipe.isUnlocked(this, inv) ? super.matches(inv, worldIn) : false;
+        return unlocked || CheckRecipe.isUnlocked(this, inv) ? super.matches(inv, worldIn) : false;
+    }
+
+    @Override
+    public ItemStack getCraftingResult(InventoryCrafting inv) {
+        return CheckRecipe.getCraftingResult(this, inv, super.getCraftingResult(inv));
     }
 }

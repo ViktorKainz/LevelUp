@@ -3,16 +3,20 @@ package at.htlkaindorf.levelup.config;
 import at.htlkaindorf.levelup.capability.experience.ExperienceType;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Group {
 
-    public static List<Group> groups;
+    public static Map<String,Group> groups;
 
     private String name;
     private ExperienceType type;
     private int level;
-    private List<ResourceLocation> items;
+    private List<ResourceLocation> items = new ArrayList<>();
+    private Map<ResourceLocation,Integer> amounts = new HashMap<>();
 
     public Group(String name, ExperienceType type, int level) {
         this.name = name;
@@ -27,6 +31,14 @@ public class Group {
             resources += r.toString() + " ";
         }
         return String.format("Group: %s Type: %s Level: %d Items: %s",name,type.toString(),level,resources);
+    }
+
+    public static Map<String, Group> getGroups() {
+        return groups;
+    }
+
+    public static void setGroups(Map<String, Group> groups) {
+        Group.groups = groups;
     }
 
     public String getName() {
@@ -59,5 +71,13 @@ public class Group {
 
     public void setItems(List<ResourceLocation> items) {
         this.items = items;
+    }
+
+    public Map<ResourceLocation, Integer> getAmounts() {
+        return amounts;
+    }
+
+    public void setAmounts(Map<ResourceLocation, Integer> amount) {
+        this.amounts = amount;
     }
 }
