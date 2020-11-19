@@ -2,7 +2,6 @@ package at.htlkaindorf.levelup.proxy;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.blocks.RubyOre;
-import at.htlkaindorf.levelup.client.gui.GuiHandler;
 import at.htlkaindorf.levelup.blocks.*;
 import at.htlkaindorf.levelup.capability.*;
 import at.htlkaindorf.levelup.capability.experience.*;
@@ -128,13 +127,12 @@ public class CommonProxy {
         CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
-        MinecraftForge.EVENT_BUS.register(new GuiHandler());
 
         ModConfig.init();
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
+    public void init(FMLInitializationEvent event){
     }
 
     @Mod.EventHandler

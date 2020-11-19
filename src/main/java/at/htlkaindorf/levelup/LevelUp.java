@@ -1,12 +1,14 @@
 package at.htlkaindorf.levelup;
 
 import at.htlkaindorf.levelup.client.LevelUpTab;
+import at.htlkaindorf.levelup.commands.LevelUpCommand;
 import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(
@@ -45,5 +47,11 @@ public class LevelUp {
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
         proxy.postinit(event);
+    }
+
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent event)
+    {
+        event.registerServerCommand(new LevelUpCommand());
     }
 }
