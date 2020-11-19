@@ -4,8 +4,6 @@ import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.capability.experience.ExperienceProvider;
 import at.htlkaindorf.levelup.capability.experience.ExperienceType;
 import at.htlkaindorf.levelup.capability.experience.IExperience;
-import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
-import at.htlkaindorf.levelup.capability.unlocked.UnlockedProvider;
 import at.htlkaindorf.levelup.items.magma.armor.MagmaHelmet;
 import at.htlkaindorf.levelup.items.wither.armor.WitherHelmet;
 import at.htlkaindorf.levelup.materials.Materials;
@@ -51,8 +49,6 @@ public class EventHandler {
             player.sendMessage(new TextComponentString(
                     String.format("You have %d %s experience.", experience.getExperience(type), type)));
         }
-        IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP,null);
-        unlocked.add("Better Wood");
     }
 
     @SubscribeEvent

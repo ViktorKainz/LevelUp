@@ -1,8 +1,6 @@
 package at.htlkaindorf.levelup.recipes;
 
 import at.htlkaindorf.levelup.config.Group;
-import at.htlkaindorf.levelup.capability.unlocked.IUnlocked;
-import at.htlkaindorf.levelup.capability.unlocked.UnlockedProvider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
@@ -35,9 +33,8 @@ public class CheckRecipe {
     public static boolean isUnlocked(IRecipe r, InventoryCrafting inv) {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
         if (player != null) {
-            IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP, null);
             for (Group g : Group.groups.values()) {
-                if (unlocked.isUnlocked(g.getName()) && g.getItems().contains(r.getRegistryName())) {
+                if (g.isUnlocked(player) && g.getItems().contains(r.getRegistryName())) {
                     return true;
                 }
             }
@@ -49,9 +46,8 @@ public class CheckRecipe {
     public static ItemStack getCraftingResult(IRecipe r, InventoryCrafting inv, ItemStack stack) {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
         if (player != null) {
-            IUnlocked unlocked = player.getCapability(UnlockedProvider.UNLOCKED_CAP, null);
             for (Group g : Group.groups.values()) {
-                if (unlocked.isUnlocked(g.getName()) && g.getAmounts().containsKey(r.getRegistryName())) {
+                if (g.isUnlocked(player) && g.getAmounts().containsKey(r.getRegistryName())) {
                     stack.setCount(g.getAmounts().get(r.getRegistryName()));
                     break;
                 }
