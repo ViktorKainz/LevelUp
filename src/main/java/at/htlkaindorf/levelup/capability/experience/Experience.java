@@ -30,7 +30,7 @@ public class Experience implements IExperience {
         do {
             l++;
             e = baseLevel * l;
-        } while(experience.get(type) > e);
+        } while(getExperience(type) > e);
         return l;
     }
 }

@@ -133,7 +133,7 @@ public class CommonProxy {
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
+    public void init(FMLInitializationEvent event){
     }
 
     @Mod.EventHandler
