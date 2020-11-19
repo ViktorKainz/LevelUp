@@ -23,9 +23,11 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
-        keyBindings = new KeyBinding[1];
+        keyBindings = new KeyBinding[3];
 
-        keyBindings[0] = new KeyBinding("Open Interface", Keyboard.KEY_B, "LevelUP");
+        keyBindings[0] = new KeyBinding("Skill 1", Keyboard.KEY_Z, "LevelUP");
+        keyBindings[1] = new KeyBinding("Skill 2", Keyboard.KEY_H, "LevelUP");
+        keyBindings[2] = new KeyBinding("Skill 3", Keyboard.KEY_N, "LevelUP");
 
         for (KeyBinding keyBinding : keyBindings) {
             ClientRegistry.registerKeyBinding(keyBinding);

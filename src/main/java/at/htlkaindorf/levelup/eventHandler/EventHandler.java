@@ -1,4 +1,4 @@
-package at.htlkaindorf.levelup.capability;
+package at.htlkaindorf.levelup.eventHandler;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.capability.experience.ExperienceProvider;
