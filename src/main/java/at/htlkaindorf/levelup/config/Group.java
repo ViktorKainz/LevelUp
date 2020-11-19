@@ -1,6 +1,9 @@
 package at.htlkaindorf.levelup.config;
 
+import at.htlkaindorf.levelup.capability.experience.ExperienceProvider;
 import at.htlkaindorf.levelup.capability.experience.ExperienceType;
+import at.htlkaindorf.levelup.capability.experience.IExperience;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
@@ -31,6 +34,10 @@ public class Group {
             resources += r.toString() + " ";
         }
         return String.format("Group: %s Type: %s Level: %d Items: %s",name,type.toString(),level,resources);
+    }
+
+    public boolean isUnlocked(EntityPlayer player) {
+        return player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null).getLevel(type) >= level;
     }
 
     public static Map<String, Group> getGroups() {

@@ -6,8 +6,6 @@ import at.htlkaindorf.levelup.client.gui.GuiHandler;
 import at.htlkaindorf.levelup.blocks.*;
 import at.htlkaindorf.levelup.capability.*;
 import at.htlkaindorf.levelup.capability.experience.*;
-import at.htlkaindorf.levelup.capability.skillpoint.*;
-import at.htlkaindorf.levelup.capability.unlocked.*;
 import at.htlkaindorf.levelup.config.ModConfig;
 import at.htlkaindorf.levelup.items.emerald.armor.*;
 import at.htlkaindorf.levelup.items.emerald.tools.*;
@@ -128,8 +126,6 @@ public class CommonProxy {
         addItem(new WitherBoots());
 
         CapabilityManager.INSTANCE.register(IExperience.class, new ExperienceStorage(), Experience::new);
-        CapabilityManager.INSTANCE.register(IUnlocked.class, new UnlockedStorage(), Unlocked::new);
-        CapabilityManager.INSTANCE.register(ISkillPoint.class, new SkillPointStorage(), SkillPoint::new);
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
         MinecraftForge.EVENT_BUS.register(new GuiHandler());
