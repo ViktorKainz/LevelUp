@@ -12,13 +12,13 @@ import java.util.Map;
 
 public class Group {
 
-    public static Map<String,Group> groups;
+    public static Map<String, Group> groups;
 
     private String name;
     private ExperienceType type;
     private int level;
     private List<ResourceLocation> items = new ArrayList<>();
-    private Map<ResourceLocation,Integer> amounts = new HashMap<>();
+    private Map<ResourceLocation, Integer> amounts = new HashMap<>();
 
     public Group(String name, ExperienceType type, int level) {
         this.name = name;
@@ -29,10 +29,10 @@ public class Group {
     @Override
     public String toString() {
         String resources = "";
-        for(ResourceLocation r : items) {
+        for (ResourceLocation r : items) {
             resources += r.toString() + " ";
         }
-        return String.format("Group: %s Type: %s Level: %d Items: %s",name,type.toString(),level,resources);
+        return String.format("Group: %s Type: %s Level: %d Items: %s", name, type.toString(), level, resources);
     }
 
     public boolean isUnlocked(EntityPlayer player) {

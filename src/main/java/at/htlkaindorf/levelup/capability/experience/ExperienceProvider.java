@@ -11,7 +11,7 @@ public class ExperienceProvider implements ICapabilitySerializable<NBTBase> {
     @CapabilityInject(IExperience.class)
     public static final Capability<IExperience> EXPERIENCE_CAP = null;
 
-    private IExperience instance = EXPERIENCE_CAP.getDefaultInstance();
+    private final IExperience instance = EXPERIENCE_CAP.getDefaultInstance();
 
     @Override
     public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
@@ -20,7 +20,7 @@ public class ExperienceProvider implements ICapabilitySerializable<NBTBase> {
 
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-        return capability == EXPERIENCE_CAP ? EXPERIENCE_CAP.<T> cast(this.instance) : null;
+        return capability == EXPERIENCE_CAP ? EXPERIENCE_CAP.cast(this.instance) : null;
     }
 
     @Override

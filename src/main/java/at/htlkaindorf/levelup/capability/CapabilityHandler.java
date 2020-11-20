@@ -18,8 +18,8 @@ public class CapabilityHandler {
         if (event.getObject() instanceof EntityPlayer) {
             event.addCapability(EXPERIENCE_CAP, new ExperienceProvider());
         }
-        if(event.getObject() instanceof ItemStack) {
-            if(((ItemStack)event.getObject()).getItem() instanceof ItemTool) {
+        if (event.getObject() instanceof ItemStack) {
+            if (((ItemStack) event.getObject()).getItem() instanceof ItemTool) {
                 event.addCapability(EXPERIENCE_CAP, new ExperienceProvider());
             }
         }

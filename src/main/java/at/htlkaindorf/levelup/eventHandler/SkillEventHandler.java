@@ -11,7 +11,7 @@ public class SkillEventHandler {
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority = EventPriority.NORMAL, receiveCanceled = true)
-    public static void onEvent(){
+    public static void onEvent() {
         KeyBinding[] keyBindings = ClientProxy.keyBindings;
 
     }

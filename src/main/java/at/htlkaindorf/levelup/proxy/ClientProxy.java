@@ -37,5 +37,5 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
     }
-    
+
 }

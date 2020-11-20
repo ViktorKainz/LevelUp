@@ -2,7 +2,6 @@ package at.htlkaindorf.levelup.items.ruby.tools;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.materials.Materials;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemHoe;
 
 public class RubyHoe extends ItemHoe {

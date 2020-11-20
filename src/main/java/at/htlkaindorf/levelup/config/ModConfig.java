@@ -46,10 +46,10 @@ public class ModConfig {
     };
 
     public static void init() {
-        Map<String,Group> groupMap = new HashMap<>();
+        Map<String, Group> groupMap = new HashMap<>();
         for (int i = 0; i < groups.length; i++) {
             String[] group = groups[i].split(",");
-            groupMap.put(group[0],new Group(group[0], ExperienceType.valueOf(group[1]), Integer.parseInt(group[2])));
+            groupMap.put(group[0], new Group(group[0], ExperienceType.valueOf(group[1]), Integer.parseInt(group[2])));
         }
         for (int i = 0; i < groupsRecipes.length; i++) {
             List<ResourceLocation> resources = new ArrayList<>();
@@ -60,10 +60,10 @@ public class ModConfig {
             groupMap.get(group[0]).setItems(resources);
         }
         for (int i = 0; i < groupsRecipesAmount.length; i++) {
-            Map<ResourceLocation,Integer> amounts = new HashMap<>();
+            Map<ResourceLocation, Integer> amounts = new HashMap<>();
             String[] group = groupsRecipesAmount[i].split(",");
-            for (int j = 1; j < group.length; j+=2) {
-                amounts.put(new ResourceLocation(group[j]),Integer.parseInt(group[j+1]));
+            for (int j = 1; j < group.length; j += 2) {
+                amounts.put(new ResourceLocation(group[j]), Integer.parseInt(group[j + 1]));
             }
             groupMap.get(group[0]).setAmounts(amounts);
         }

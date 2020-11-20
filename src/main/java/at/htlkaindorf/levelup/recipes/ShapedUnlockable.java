@@ -1,6 +1,6 @@
 package at.htlkaindorf.levelup.recipes;
 
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.ShapedRecipes;
@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class ShapedUnlockable extends ShapedRecipes {
 
-    private boolean unlocked;
+    private final boolean unlocked;
 
     public ShapedUnlockable(String group, int width, int height, NonNullList<Ingredient> ingredients, ItemStack result, String name, boolean unlocked) {
         super(group, width, height, ingredients, result);
@@ -20,7 +20,7 @@ public class ShapedUnlockable extends ShapedRecipes {
 
     @Override
     public boolean matches(InventoryCrafting inv, World worldIn) {
-        return unlocked || CheckRecipe.isUnlocked(this, inv) ? super.matches(inv, worldIn) : false;
+        return (unlocked || CheckRecipe.isUnlocked(this, inv)) && super.matches(inv, worldIn);
     }
 
     @Override

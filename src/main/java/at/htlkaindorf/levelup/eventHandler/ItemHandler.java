@@ -2,8 +2,8 @@ package at.htlkaindorf.levelup.eventHandler;
 
 import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.items.ender.EnderEvents;
-import at.htlkaindorf.levelup.items.magma.armor.MagmaHelmet;
 import at.htlkaindorf.levelup.items.magma.MagmaEvents;
+import at.htlkaindorf.levelup.items.magma.armor.MagmaHelmet;
 import at.htlkaindorf.levelup.items.wither.WitherEvents;
 import at.htlkaindorf.levelup.items.wither.armor.WitherHelmet;
 import at.htlkaindorf.levelup.materials.Materials;
@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent;

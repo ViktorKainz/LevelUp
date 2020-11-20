@@ -1,29 +1,51 @@
 package at.htlkaindorf.levelup.proxy;
 
 import at.htlkaindorf.levelup.LevelUp;
+import at.htlkaindorf.levelup.blocks.RubyBlock;
 import at.htlkaindorf.levelup.blocks.RubyOre;
-import at.htlkaindorf.levelup.blocks.*;
-import at.htlkaindorf.levelup.capability.*;
-import at.htlkaindorf.levelup.capability.experience.*;
+import at.htlkaindorf.levelup.blocks.SapphireBlock;
+import at.htlkaindorf.levelup.blocks.SapphireOre;
+import at.htlkaindorf.levelup.capability.CapabilityHandler;
+import at.htlkaindorf.levelup.capability.experience.Experience;
+import at.htlkaindorf.levelup.capability.experience.ExperienceStorage;
+import at.htlkaindorf.levelup.capability.experience.IExperience;
 import at.htlkaindorf.levelup.config.ModConfig;
 import at.htlkaindorf.levelup.eventHandler.ExperienceHandler;
 import at.htlkaindorf.levelup.eventHandler.ItemHandler;
-import at.htlkaindorf.levelup.items.emerald.armor.*;
+import at.htlkaindorf.levelup.items.emerald.armor.EmeraldBoots;
+import at.htlkaindorf.levelup.items.emerald.armor.EmeraldChestplate;
+import at.htlkaindorf.levelup.items.emerald.armor.EmeraldHelmet;
+import at.htlkaindorf.levelup.items.emerald.armor.EmeraldLeggings;
 import at.htlkaindorf.levelup.items.emerald.tools.*;
-import at.htlkaindorf.levelup.items.ender.*;
-import at.htlkaindorf.levelup.items.ender.armor.*;
+import at.htlkaindorf.levelup.items.ender.EnderDiamond;
+import at.htlkaindorf.levelup.items.ender.armor.EnderBoots;
+import at.htlkaindorf.levelup.items.ender.armor.EnderChestplate;
+import at.htlkaindorf.levelup.items.ender.armor.EnderHelmet;
+import at.htlkaindorf.levelup.items.ender.armor.EnderLeggings;
 import at.htlkaindorf.levelup.items.ender.tools.*;
-import at.htlkaindorf.levelup.items.magma.*;
-import at.htlkaindorf.levelup.items.magma.armor.*;
+import at.htlkaindorf.levelup.items.magma.MagmaIngot;
+import at.htlkaindorf.levelup.items.magma.armor.MagmaBoots;
+import at.htlkaindorf.levelup.items.magma.armor.MagmaChestplate;
+import at.htlkaindorf.levelup.items.magma.armor.MagmaHelmet;
+import at.htlkaindorf.levelup.items.magma.armor.MagmaLeggings;
 import at.htlkaindorf.levelup.items.magma.tools.*;
-import at.htlkaindorf.levelup.items.ruby.*;
-import at.htlkaindorf.levelup.items.ruby.armor.*;
+import at.htlkaindorf.levelup.items.ruby.Ruby;
+import at.htlkaindorf.levelup.items.ruby.armor.RubyBoots;
+import at.htlkaindorf.levelup.items.ruby.armor.RubyChestplate;
+import at.htlkaindorf.levelup.items.ruby.armor.RubyHelmet;
+import at.htlkaindorf.levelup.items.ruby.armor.RubyLeggings;
 import at.htlkaindorf.levelup.items.ruby.tools.*;
-import at.htlkaindorf.levelup.items.sapphire.*;
-import at.htlkaindorf.levelup.items.sapphire.armor.*;
+import at.htlkaindorf.levelup.items.sapphire.Sapphire;
+import at.htlkaindorf.levelup.items.sapphire.armor.SapphireBoots;
+import at.htlkaindorf.levelup.items.sapphire.armor.SapphireChestplate;
+import at.htlkaindorf.levelup.items.sapphire.armor.SapphireHelmet;
+import at.htlkaindorf.levelup.items.sapphire.armor.SapphireLeggings;
 import at.htlkaindorf.levelup.items.sapphire.tools.*;
-import at.htlkaindorf.levelup.items.wither.*;
-import at.htlkaindorf.levelup.items.wither.armor.*;
+import at.htlkaindorf.levelup.items.wither.WitherIngot;
+import at.htlkaindorf.levelup.items.wither.armor.WitherBoots;
+import at.htlkaindorf.levelup.items.wither.armor.WitherChestplate;
+import at.htlkaindorf.levelup.items.wither.armor.WitherHelmet;
+import at.htlkaindorf.levelup.items.wither.armor.WitherLeggings;
 import at.htlkaindorf.levelup.items.wither.tools.*;
 import at.htlkaindorf.levelup.recipes.CraftingHandler;
 import at.htlkaindorf.levelup.world.ModWorldGen;
@@ -135,7 +157,7 @@ public class CommonProxy {
     }
 
     @Mod.EventHandler
-    public void init(FMLInitializationEvent event){
+    public void init(FMLInitializationEvent event) {
     }
 
     @Mod.EventHandler

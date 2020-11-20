@@ -42,12 +42,12 @@ public class CraftingHandler {
                 ShapedRecipes shaped = (ShapedRecipes) r;
                 recipeRegistry.remove(r.getRegistryName());
                 recipeRegistry.register(new ShapedUnlockable(shaped.getGroup(), shaped.getWidth(), shaped.getHeight(),
-                        shaped.getIngredients(), shaped.getRecipeOutput(), shaped.getRegistryName().toString(),customAmount));
+                        shaped.getIngredients(), shaped.getRecipeOutput(), shaped.getRegistryName().toString(), customAmount));
             } else if (r instanceof ShapelessRecipes) {
                 ShapelessRecipes shapeless = (ShapelessRecipes) r;
                 recipeRegistry.remove(r.getRegistryName());
                 recipeRegistry.register(new ShapelessUnlockable(shapeless.getGroup(), shapeless.getRecipeOutput(),
-                        shapeless.getIngredients(), shapeless.getRegistryName().toString(),customAmount));
+                        shapeless.getIngredients(), shapeless.getRegistryName().toString(), customAmount));
             }
         }
     }

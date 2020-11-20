@@ -2,7 +2,6 @@ package at.htlkaindorf.levelup.world;
 
 import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -27,7 +26,7 @@ public class ModWorldGen implements IWorldGenerator {
     }
 
     private void generateOre(IBlockState ore, World world, Random random, int x, int z, int minY, int maxY, int size, int chances) {
-        for(int i = 0; i < chances; i++) {
+        for (int i = 0; i < chances; i++) {
             BlockPos pos = new BlockPos(x + random.nextInt(16), minY + random.nextInt(maxY - minY), z + random.nextInt(16));
             new WorldGenMinable(ore, size).generate(world, random, pos);
         }

@@ -10,8 +10,8 @@ public class ExperienceStorage implements Capability.IStorage<IExperience> {
     @Override
     public NBTBase writeNBT(Capability<IExperience> capability, IExperience instance, EnumFacing side) {
         NBTTagCompound tag = new NBTTagCompound();
-        for(ExperienceType type : ExperienceType.values()) {
-            tag.setInteger(type.toString(),instance.getExperience(type));
+        for (ExperienceType type : ExperienceType.values()) {
+            tag.setInteger(type.toString(), instance.getExperience(type));
         }
         return tag;
     }
@@ -19,8 +19,8 @@ public class ExperienceStorage implements Capability.IStorage<IExperience> {
     @Override
     public void readNBT(Capability<IExperience> capability, IExperience instance, EnumFacing side, NBTBase nbt) {
         NBTTagCompound tag = (NBTTagCompound) nbt;
-        for(ExperienceType type : ExperienceType.values()) {
-            instance.set(type,tag.getInteger(type.toString()));
+        for (ExperienceType type : ExperienceType.values()) {
+            instance.set(type, tag.getInteger(type.toString()));
         }
     }
 }

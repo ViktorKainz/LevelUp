@@ -37,8 +37,8 @@ public class ExperienceHandler {
         IExperience experience = item.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
         int oldLevel = experience.getLevel(ExperienceType.Tool);
         experience.add(ExperienceType.Tool, 10);
-        if(experience.getLevel(ExperienceType.Tool) > oldLevel && experience.getLevel(ExperienceType.Tool) % 5 ==0 ) {
-            EnchantmentHelper.addRandomEnchantment(new Random(),item,experience.getLevel(ExperienceType.Tool),true);
+        if (experience.getLevel(ExperienceType.Tool) > oldLevel && experience.getLevel(ExperienceType.Tool) % 5 == 0) {
+            EnchantmentHelper.addRandomEnchantment(new Random(), item, experience.getLevel(ExperienceType.Tool), true);
         }
     }
 
@@ -96,7 +96,7 @@ public class ExperienceHandler {
             addExperience(player, ExperienceType.Fighting, 1);
             Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
             if (main instanceof ItemSword) {
-                addExperience(player.getHeldItemMainhand(),10);
+                addExperience(player.getHeldItemMainhand(), 10);
             }
         }
     }
@@ -106,7 +106,7 @@ public class ExperienceHandler {
         EntityPlayer player = event.getHarvester();
         Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
         if (main instanceof ItemTool) {
-            addExperience(player.getHeldItemMainhand(),10);
+            addExperience(player.getHeldItemMainhand(), 10);
         }
     }
 
@@ -120,8 +120,8 @@ public class ExperienceHandler {
             toolTip.clear();
             toolTip.add(name);
             toolTip.add("Level " + experience.getLevel(ExperienceType.Tool));
-            toolTip.add((experience.getExperience(ExperienceType.Tool) - experience.getExperienceOfLevel(level-1)) + "/"
-                    + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level-1)));
+            toolTip.add((experience.getExperience(ExperienceType.Tool) - experience.getExperienceOfLevel(level - 1)) + "/"
+                    + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
         }
     }
 }

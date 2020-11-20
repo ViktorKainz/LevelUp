@@ -25,7 +25,7 @@ public class LevelUp {
     public static final LevelUpTab LEVEL_UP_TAB = new LevelUpTab();
 
     @SidedProxy(clientSide = "at.htlkaindorf.levelup.proxy.ClientProxy",
-                serverSide = "at.htlkaindorf.levelup.proxy.ServerProxy")
+            serverSide = "at.htlkaindorf.levelup.proxy.ServerProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance()
@@ -50,8 +50,7 @@ public class LevelUp {
     }
 
     @Mod.EventHandler
-    public void serverLoad(FMLServerStartingEvent event)
-    {
+    public void serverLoad(FMLServerStartingEvent event) {
         event.registerServerCommand(new LevelUpCommand());
     }
 }
