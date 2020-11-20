@@ -25,12 +25,17 @@ public class Experience implements IExperience {
 
     @Override
     public int getLevel(ExperienceType type) {
-        int l = -1;
+        int l = 0;
         int e;
         do {
             l++;
             e = baseLevel * l;
         } while(getExperience(type) > e);
         return l;
+    }
+
+    @Override
+    public int getExperienceOfLevel(int level) {
+        return baseLevel * level;
     }
 }

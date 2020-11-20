@@ -5,4 +5,5 @@ public interface IExperience {
     void set(ExperienceType type, int points);
     int getExperience(ExperienceType type);
     int getLevel(ExperienceType type);
+    int getExperienceOfLevel(int level);
 }
