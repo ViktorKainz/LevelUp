@@ -8,15 +8,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class SkillEventHandler {
+
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority = EventPriority.NORMAL, receiveCanceled = true)
     public static void onEvent(){
         KeyBinding[] keyBindings = ClientProxy.keyBindings;
 
-
-
     }
-
-
 
 }

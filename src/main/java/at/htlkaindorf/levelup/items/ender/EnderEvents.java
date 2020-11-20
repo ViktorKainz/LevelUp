@@ -1,4 +1,4 @@
-package at.htlkaindorf.levelup.items.ender.tools;
+package at.htlkaindorf.levelup.items.ender;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class EnderTools {
+public class EnderEvents {
 
     public static void onHarvestDrop(BlockEvent.HarvestDropsEvent event) {
         EntityPlayer player = event.getHarvester();

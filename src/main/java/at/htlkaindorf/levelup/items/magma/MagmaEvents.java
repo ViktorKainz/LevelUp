@@ -1,20 +1,22 @@
-package at.htlkaindorf.levelup.items.magma.tools;
+package at.htlkaindorf.levelup.items.magma;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.world.BlockEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MagmaTools {
+public class MagmaEvents {
 
     public static void onHarvestDrop(BlockEvent.HarvestDropsEvent event) {
         List<ItemStack> drops = new ArrayList<>(event.getDrops());
@@ -44,5 +46,12 @@ public class MagmaTools {
                     random.nextDouble() % (random.nextBoolean() ? -0.1 : 0.1));
         }
         world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.NEUTRAL, 1, 1, false);
+    }
+
+    public static void onFullArmorLivingAttack(LivingAttackEvent event) {
+        DamageSource source = event.getSource();
+        if (source.getImmediateSource() != null) {
+            source.getImmediateSource().setFire(1);
+        }
     }
 }

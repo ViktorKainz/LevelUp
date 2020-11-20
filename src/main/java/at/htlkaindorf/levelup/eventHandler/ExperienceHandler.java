@@ -70,18 +70,6 @@ public class ExperienceHandler {
     }
 
     @SubscribeEvent
-    public void onLivingAttack(LivingAttackEvent event) {
-        if (event.getSource().getTrueSource() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            addExperience(player, ExperienceType.Fighting, 1);
-            Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
-            if (main instanceof ItemSword) {
-                addExperience(player.getHeldItemMainhand(),10);
-            }
-        }
-    }
-
-    @SubscribeEvent
     public void onBlockPlace(BlockEvent.PlaceEvent event) {
         EntityPlayer player = event.getPlayer();
         addExperience(player, ExperienceType.Building, 1);
@@ -99,6 +87,18 @@ public class ExperienceHandler {
     public void onUseHoe(UseHoeEvent event) {
         EntityPlayer player = event.getEntityPlayer();
         addExperience(player, ExperienceType.Farming, 1);
+    }
+
+    @SubscribeEvent
+    public void onLivingAttack(LivingAttackEvent event) {
+        if (event.getSource().getTrueSource() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+            addExperience(player, ExperienceType.Fighting, 1);
+            Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
+            if (main instanceof ItemSword) {
+                addExperience(player.getHeldItemMainhand(),10);
+            }
+        }
     }
 
     @SubscribeEvent
