@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -20,7 +21,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = LevelUp.MODID)
@@ -39,6 +42,27 @@ public class ExperienceHandler {
         experience.add(ExperienceType.Tool, 10);
         if (experience.getLevel(ExperienceType.Tool) > oldLevel && experience.getLevel(ExperienceType.Tool) % 5 == 0) {
             EnchantmentHelper.addRandomEnchantment(new Random(), item, experience.getLevel(ExperienceType.Tool), true);
+        }
+        NBTTagList l = item.getEnchantmentTagList();
+        Map<Integer, Integer[]> m = new HashMap<>();
+        for (int i = 0; i < l.tagCount(); i++) {
+            if(m.get(l.getCompoundTagAt(i).getInteger("id")) == null ||
+               m.get(l.getCompoundTagAt(i).getInteger("id"))[0] >
+               l.getCompoundTagAt(i).getInteger("lvl"))
+            m.put(l.getCompoundTagAt(i).getInteger("id"),
+                  new Integer[]{l.getCompoundTagAt(i).getInteger("lvl"), i});
+        }
+        for (int i = 0; i < l.tagCount(); i++) {
+            boolean t = false;
+            for(int j : m.keySet()) {
+                t = m.get(j)[1] == i;
+                if(t) {
+                    break;
+                }
+            }
+            if(!t) {
+                l.removeTag(i);
+            }
         }
     }
 
@@ -106,7 +130,7 @@ public class ExperienceHandler {
         EntityPlayer player = event.getHarvester();
         Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
         if (main instanceof ItemTool) {
-            addExperience(player.getHeldItemMainhand(), 10);
+            addExperience(player.getHeldItemMainhand(), 100);
         }
     }
 
@@ -115,13 +139,10 @@ public class ExperienceHandler {
         IExperience experience = event.getItemStack().getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
         if (experience != null) {
             List<String> toolTip = event.getToolTip();
-            String name = toolTip.get(0);
             int level = experience.getLevel(ExperienceType.Tool);
-            toolTip.clear();
-            toolTip.add(name);
-            toolTip.add("Level " + experience.getLevel(ExperienceType.Tool));
-            toolTip.add((experience.getExperience(ExperienceType.Tool) - experience.getExperienceOfLevel(level - 1)) + "/"
-                    + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
+            toolTip.add(1,"Level " + level);
+            toolTip.add(2,(experience.getExperience(ExperienceType.Tool) - experience.getExperienceOfLevel(level-1)) + "/"
+                    + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level-1)));
         }
     }
 }
