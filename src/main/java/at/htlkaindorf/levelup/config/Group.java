@@ -39,6 +39,11 @@ public class Group {
         return player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null).getLevel(type) >= level;
     }
 
+    public void setUnlocked(EntityPlayer player)
+    {
+        player.getCapability(ExperienceProvider.EXPERIENCE_CAP,null).set(type,99999999);
+    }
+
     public static Map<String, Group> getGroups() {
         return groups;
     }
