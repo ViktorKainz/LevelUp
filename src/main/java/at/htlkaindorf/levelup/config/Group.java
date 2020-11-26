@@ -18,7 +18,7 @@ public class Group {
     private ExperienceType type;
     private int level;
     private List<ResourceLocation> items = new ArrayList<>();
-    private Map<ResourceLocation, Integer> amounts = new HashMap<>();
+    private Map<ResourceLocation, Double> amounts = new HashMap<>();
 
     public Group(String name, ExperienceType type, int level) {
         this.name = name;
@@ -79,11 +79,11 @@ public class Group {
         this.items = items;
     }
 
-    public Map<ResourceLocation, Integer> getAmounts() {
+    public Map<ResourceLocation, Double> getAmounts() {
         return amounts;
     }
 
-    public void setAmounts(Map<ResourceLocation, Integer> amount) {
+    public void setAmounts(Map<ResourceLocation, Double> amount) {
         this.amounts = amount;
     }
 }
