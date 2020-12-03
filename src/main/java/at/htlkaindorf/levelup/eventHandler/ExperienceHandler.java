@@ -4,6 +4,10 @@ import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.capability.experience.ExperienceProvider;
 import at.htlkaindorf.levelup.capability.experience.ExperienceType;
 import at.htlkaindorf.levelup.capability.experience.IExperience;
+import at.htlkaindorf.levelup.config.Group;
+import com.google.common.collect.Lists;
+import net.minecraft.advancements.AdvancementList;
+import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,35 +15,43 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.registries.ForgeRegistry;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.lang.reflect.Field;
+import java.util.*;
 
 @Mod.EventBusSubscriber(modid = LevelUp.MODID)
 public class ExperienceHandler {
 
     public void addExperience(EntityPlayer player, ExperienceType type, int amount) {
         IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
+        int old = experience.getLevel(type);
         experience.add(type, amount);
-        player.sendMessage(new TextComponentString(
-                String.format("You have %d %s experience.", experience.getExperience(type), type)));
+        if(old < experience.getLevel(type)) {
+            manageRecipeBook(player);
+            player.sendMessage(new TextComponentString(
+                    String.format("You are now Level %d in %s.", experience.getLevel(type), type)));
+        }
     }
 
     public void addExperience(ItemStack item, int amount) {
         IExperience experience = item.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
         int oldLevel = experience.getLevel(ExperienceType.Tool);
-        experience.add(ExperienceType.Tool, 10);
+        experience.add(ExperienceType.Tool, amount);
         if (experience.getLevel(ExperienceType.Tool) > oldLevel && experience.getLevel(ExperienceType.Tool) % 5 == 0) {
             EnchantmentHelper.addRandomEnchantment(new Random(), item, experience.getLevel(ExperienceType.Tool), true);
         }
@@ -66,6 +78,39 @@ public class ExperienceHandler {
         }
     }
 
+    public void manageRecipeBook(EntityPlayer player) {
+        ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
+        ArrayList<IRecipe> recipes = Lists.newArrayList(recipeRegistry.getValuesCollection());
+        player.resetRecipes(recipes);
+        ArrayList<ResourceLocation> notUnlocked = new ArrayList<>();
+        for(Group group : Group.groups.values()) {
+            if(!group.isUnlocked(player)) {
+                notUnlocked.addAll(group.getItems());
+            }
+        }
+        ArrayList<IRecipe> unlockedRecipes = new ArrayList<>(recipes);
+        for (IRecipe r : recipes) {
+            if(notUnlocked.contains(r.getRegistryName())) {
+                System.out.println(r.getRegistryName());
+                unlockedRecipes.remove(r);
+            }
+        }
+        player.unlockRecipes(unlockedRecipes);
+    }
+
+    @SubscribeEvent
+    public void onWorldload(WorldEvent.Load event) {
+        try {
+            Field field = ObfuscationReflectionHelper.findField(AdvancementManager.class,"field_192784_c");
+            AdvancementList l = (AdvancementList) field.get(null);
+            Set<ResourceLocation> r = new HashSet<>();
+            r.add(new ResourceLocation("minecraft:recipes/root"));
+            l.removeAll(r);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
     @SubscribeEvent
     public void onPlayerLogsIn(PlayerEvent.PlayerLoggedInEvent event) {
         EntityPlayer player = event.player;
@@ -74,6 +119,12 @@ public class ExperienceHandler {
             player.sendMessage(new TextComponentString(
                     String.format("You have %d %s experience.", experience.getExperience(type), type)));
         }
+        manageRecipeBook(player);
+    }
+
+    @SubscribeEvent
+    public void onItemPickUp(PlayerEvent.ItemPickupEvent event) {
+        EntityPlayer player = event.player;
     }
 
     @SubscribeEvent
@@ -120,7 +171,7 @@ public class ExperienceHandler {
             addExperience(player, ExperienceType.Fighting, 1);
             Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
             if (main instanceof ItemSword) {
-                addExperience(player.getHeldItemMainhand(), 10);
+                addExperience(player.getHeldItemMainhand(), 5);
             }
         }
     }
@@ -130,7 +181,7 @@ public class ExperienceHandler {
         EntityPlayer player = event.getHarvester();
         Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
         if (main instanceof ItemTool) {
-            addExperience(player.getHeldItemMainhand(), 100);
+            addExperience(player.getHeldItemMainhand(), 5);
         }
     }
 

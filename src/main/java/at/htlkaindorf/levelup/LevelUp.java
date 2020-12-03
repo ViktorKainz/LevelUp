@@ -39,7 +39,6 @@ public class LevelUp {
         proxy.preinit(event);
     }
 
-
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
