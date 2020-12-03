@@ -32,7 +32,7 @@ public class ModConfig {
             "Better Woods,Crafting,1",
 
 
-            "Wood Building,Building,1",
+            "Basic Wood Building,Building,1",
             "Wool Building,Building,2",
             "Advanced Wood Building,Building,3",
             "Basic Stone Building,Building,4",
@@ -42,11 +42,12 @@ public class ModConfig {
             "Basic decoration Building,Building,8",
             "Contcrete Pulver Building,Building,9",
             "Enchanting Building,Building,10",
-            "Redstone Basic Building,Building,11",
-            "Advanced decoration Building,Building,12",
-            "Advanced Redstone Building,Building,13",
-            "Rails Building,Building,14",
-            "Ender Eye Crafting,Building,15"
+            "Brewing Building,Building,11",
+            "Basic Redstone Building,Building,12",
+            "Advanced decoration Building,Building,13",
+            "Advanced Redstone Building,Building,14",
+            "Rails Building,Building,15",
+            "Ender Eye Crafting,Building,16"
     };
 
     @Config.Comment({
@@ -66,15 +67,15 @@ public class ModConfig {
             "Wither Mining Tools,levelup:wither_pickaxe,levelup:wither_shovel",
             "Ender Mining Tools,levelup:ender_pickaxe,levelup:ender_shovel",
 
-            "Wood Basic," +
+            "Basic Wood Building," +
                     "minecraft:fence,minecraft:spruce_fence,minecraft:birch_fence,minecraft:jungle_fence,minecraft:dark_oak_fence,minecraft:acacia_fence," +
                     "minecraft:fence_gate,minecraft:spruce_fence_gate,minecraft:birch_fence_gate,minecraft:jungle_fence_gate,minecraft:dark_oak_fence_gate,minecraft:acacia_fence_gate," +
                     "minecraft:oak_door,minecraft:spruce_door,minecraft:birch_door,minecraft:jungle_door,minecraft:acacia_door,minecraft:dark_oak_door",
+            "Wool Building,minecraft:wool,minecraft:carpet,minecraft:bed",
             "Advanced Wood Building," +
                     "minecraft:oak_stairs,minecraft:spruce_stairs,minecraft:birch_stairs,minecraft:jungle_stairs,minecraft:acacia_stairs,minecraft:dark_oak,stairs" +
                     "minecraft:boat,minecraft:spruce_boat,minecraft:birch_boat,minecraft:jungle_boat,minecraft:acacia_boat,minecraft:dark_oak_boat"+
                     "minecraft:wooden_slab,minecraft:sign,minecraft:ladder,minecraft_stand,minecraft:trapdoor",
-            "Basic Wool Building,minecraft:wool,minecraft:carpet,minecraft:bed",
             "Basic Stone Building,minecraft:cobblestone_wall,minecraft:stone_stairs,minecraft:stone_slab",
             "Advanced Stone Building," +
                     "minecraft:mossy_cobblestone,minecraft:stonebrick," +
@@ -88,7 +89,8 @@ public class ModConfig {
             "Basic decoration Building,minecraft:item_frame,minecraft:book, minecraft:bookshelf",
             "Contcrete Pulver Building,minecraft:concrete_powder",
             "Enchanting Building,minecraft:anvil,minecraft:enchanting_table",
-            "Redstone Basic Building," +
+            "Brewing Building,minecraft:brewing_stand,",
+            "Basic Redstone Building,minecraft:fermented_spider_eye" +
                     "minecraft:lever,minecraft:stone_pressure_plate,minecraft:wood_pressure_plate,minecraft:noteblock" +
                     "minecraft:heavy_weighted_pressure_plate,minecraft:light_weighted_pressure_plate," +
                     "minecraft:redstone_torch,minecraft:wood_button,minecraft:stone_button,minecraft:piston",
@@ -103,9 +105,7 @@ public class ModConfig {
                     "minecraft:rail,minecraft:activator_rail,minecraft:detector_rail,minecraft:golden_rail," +
                     "minecraft:minecart,minecraft:chest_minecraft,minecraft:furnace_minecart," +
                     "minecraft:tnt_minecart,minecraft:hopper_minecart",
-            "Ender Eye Crafting,minecraft:ender_eye,minecraft:fermented_spider_eye,minecraft:ender_chest,minecraft:brewing_stand"
-
-
+            "Ender Eye Crafting,minecraft:ender_eye,minecraft:ender_chest"
 
     };
 
@@ -113,14 +113,14 @@ public class ModConfig {
             "Line starts with the group name.",
             "The resource locations and the amount of the Items are split by a ,",
             "and Groups are split by a new line",
-            "Name,resource location,anz,resource location,anz,..."
+            "Name,resource location,multiplier,resource location,multiplier,..."
     })
     public static String[] groupsRecipesAmount = {
             "Diamond Mining Tools,minecraft:torch,2",
             "Ruby Mining Tools,minecraft:torch,2.5",
             "Ender Mining Tools,minecraft:torch,3",
 
-            "Better Wood,minecraft:oak_planks,2"
+            "Better Woods,minecraft:wood,2"
     };
 
     public static void init() {
