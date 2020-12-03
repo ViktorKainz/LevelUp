@@ -138,10 +138,10 @@ public class ModConfig {
             groupMap.get(group[0]).setItems(resources);
         }
         for (int i = 0; i < groupsRecipesAmount.length; i++) {
-            Map<ResourceLocation, Integer> amounts = new HashMap<>();
+            Map<ResourceLocation, Double> amounts = new HashMap<>();
             String[] group = groupsRecipesAmount[i].split(",");
             for (int j = 1; j < group.length; j += 2) {
-                amounts.put(new ResourceLocation(group[j]), Integer.parseInt(group[j + 1]));
+                amounts.put(new ResourceLocation(group[j]), Double.parseDouble(group[j + 1]));
             }
             groupMap.get(group[0]).setAmounts(amounts);
         }

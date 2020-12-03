@@ -48,7 +48,7 @@ public class CheckRecipe {
         if (player != null) {
             for (Group g : Group.groups.values()) {
                 if (g.isUnlocked(player) && g.getAmounts().containsKey(r.getRegistryName())) {
-                    stack.setCount(g.getAmounts().get(r.getRegistryName()));
+                    stack.setCount((int)(stack.getCount() * g.getAmounts().get(r.getRegistryName())));
                     break;
                 }
             }

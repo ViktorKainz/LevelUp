@@ -2,6 +2,7 @@ package at.htlkaindorf.levelup;
 
 import at.htlkaindorf.levelup.client.LevelUpTab;
 import at.htlkaindorf.levelup.commands.LevelUpCommand;
+import at.htlkaindorf.levelup.commands.UnlockAllCommand;
 import at.htlkaindorf.levelup.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -52,5 +53,6 @@ public class LevelUp {
     @Mod.EventHandler
     public void serverLoad(FMLServerStartingEvent event) {
         event.registerServerCommand(new LevelUpCommand());
+        event.registerServerCommand(new UnlockAllCommand());
     }
 }
