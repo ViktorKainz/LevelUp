@@ -41,8 +41,19 @@ public class ExperienceHandler {
         IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
         int old = experience.getLevel(type);
         experience.add(type, amount);
-        if(old < experience.getLevel(type)) {
-            manageRecipeBook(player);
+        int newL = experience.getLevel(type);
+        if(old < newL) {
+            ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
+            List<IRecipe> recipes = Lists.newArrayList(recipeRegistry.getValuesCollection());
+            List<ResourceLocation> items = Group.getUnlockedAtLevel(type,newL);
+            List<IRecipe> unlocked = new ArrayList<>();
+            for (IRecipe r : recipes) {
+                if(items.contains(r.getRegistryName())) {
+                    System.out.println(r.getRegistryName());
+                    unlocked.add(r);
+                }
+            }
+            player.unlockRecipes(unlocked);
             player.sendMessage(new TextComponentString(
                     String.format("You are now Level %d in %s.", experience.getLevel(type), type)));
         }
@@ -78,26 +89,6 @@ public class ExperienceHandler {
         }
     }
 
-    public void manageRecipeBook(EntityPlayer player) {
-        ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
-        ArrayList<IRecipe> recipes = Lists.newArrayList(recipeRegistry.getValuesCollection());
-        player.resetRecipes(recipes);
-        ArrayList<ResourceLocation> notUnlocked = new ArrayList<>();
-        for(Group group : Group.groups.values()) {
-            if(!group.isUnlocked(player)) {
-                notUnlocked.addAll(group.getItems());
-            }
-        }
-        ArrayList<IRecipe> unlockedRecipes = new ArrayList<>(recipes);
-        for (IRecipe r : recipes) {
-            if(notUnlocked.contains(r.getRegistryName())) {
-                System.out.println(r.getRegistryName());
-                unlockedRecipes.remove(r);
-            }
-        }
-        player.unlockRecipes(unlockedRecipes);
-    }
-
     @SubscribeEvent
     public void onWorldload(WorldEvent.Load event) {
         try {
@@ -119,7 +110,6 @@ public class ExperienceHandler {
             player.sendMessage(new TextComponentString(
                     String.format("You have %d %s experience.", experience.getExperience(type), type)));
         }
-        manageRecipeBook(player);
     }
 
     @SubscribeEvent

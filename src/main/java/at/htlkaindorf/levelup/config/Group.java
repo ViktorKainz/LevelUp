@@ -39,6 +39,16 @@ public class Group {
         return player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null).getLevel(type) >= level;
     }
 
+    public static List<ResourceLocation> getUnlockedAtLevel(ExperienceType type, int level) {
+        ArrayList<ResourceLocation> l = new ArrayList<>();
+        for(Group g : groups.values()) {
+            if(g.getType() == (type) && g.getLevel() == level) {
+                l.addAll(g.items);
+            }
+        }
+        return l;
+    }
+
     public void setUnlocked(EntityPlayer player)
     {
         player.getCapability(ExperienceProvider.EXPERIENCE_CAP,null).set(type,99999999);
