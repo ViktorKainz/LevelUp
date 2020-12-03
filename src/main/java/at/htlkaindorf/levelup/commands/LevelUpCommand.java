@@ -1,10 +1,7 @@
 package at.htlkaindorf.levelup.commands;
 
-import at.htlkaindorf.levelup.LevelUp;
 import at.htlkaindorf.levelup.config.Group;
-import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
@@ -23,27 +20,23 @@ import java.util.*;
 
 public class LevelUpCommand extends CommandBase {
 
-    private final List<String> aliases;
     private final int groupsInAPage = 3;
     private int page = 1;
 
-
-    public LevelUpCommand() {
-        aliases = Lists.newArrayList(LevelUp.MODID, "levelup", "LEVELUP");
-    }
-
     @Override
+    @Nonnull
     public String getName() {
         return "levelup";
     }
 
     @Override
-    public String getUsage(ICommandSender sender) {
+    @Nonnull
+    public String getUsage(@Nonnull ICommandSender sender) {
         return "/levelup [page]";
     }
 
     @Override
-    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+    public void execute(@Nonnull MinecraftServer server, @Nonnull ICommandSender sender, @Nonnull String[] args){
         int neededPages;
         try {
             page = Integer.parseInt(args[0]);
@@ -124,7 +117,7 @@ public class LevelUpCommand extends CommandBase {
         {
             return nextPage;
         }
-        else if(!firstPage && lastPage)
+        else if(!firstPage)
         {
             return previousPage;
         }
@@ -154,13 +147,13 @@ public class LevelUpCommand extends CommandBase {
     }
 
     @Override
-    public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
+    public boolean checkPermission(@Nonnull MinecraftServer server,@Nonnull ICommandSender sender) {
         return true;
     }
 
     @Override
     @Nonnull
-    public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos) {
+    public List<String> getTabCompletions(@Nonnull MinecraftServer server, @Nonnull ICommandSender sender, @Nonnull String[] args, @Nullable BlockPos targetPos) {
         List<String> pages = new LinkedList<>();
         int neededPages;
         if (sender instanceof EntityPlayer) {
