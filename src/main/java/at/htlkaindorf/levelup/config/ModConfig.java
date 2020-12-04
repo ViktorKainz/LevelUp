@@ -29,8 +29,23 @@ public class ModConfig {
             "Wither Mining Tools,Mining,8",
             "Ender Mining Tools,Mining,9",
 
-            "Better Woods,Crafting,1",
-
+            "More Woods,Crafting,1",
+            "More Stone,Crafting,2",
+            "More Fence,Crafting,3",
+            "More Concrete,Crafting,4",
+            "More Chest,Crafting,5",
+            "More Woods 2,Crafting,6",
+            "More Redstone Stuff,Crafting,7",
+            "More Rails,Crafting,8",
+            "More Hopper,Crafting,9",
+            "More Stone 2,Crafting,10",
+            "More Ender Eye,Crafting,11",
+            "More Woods 3,Crafting,12",
+            "More Ender Chest,Crafting,13",
+            "More Shulker Boxes,Crafting,14",
+            "More Ender Diamond,Crafting,15",
+            "More Magma Ingot,Crafting,16",
+            "More Wither Ingot,Crafting,17",
 
             "Basic Wood Building,Building,1",
             "Wool Building,Building,2",
@@ -40,7 +55,7 @@ public class ModConfig {
             "Advanced Stone Building,Building,6",
             "Iron and Glass Building,Building,7",
             "Basic decoration Building,Building,8",
-            "Contcrete Pulver Building,Building,9",
+            "Concrete Powder Building,Building,9",
             "Enchanting Building,Building,10",
             "Brewing Building,Building,11",
             "Basic Redstone Building,Building,12",
@@ -73,7 +88,7 @@ public class ModConfig {
                     "minecraft:oak_door,minecraft:spruce_door,minecraft:birch_door,minecraft:jungle_door,minecraft:acacia_door,minecraft:dark_oak_door",
             "Wool Building,minecraft:wool,minecraft:carpet,minecraft:bed",
             "Advanced Wood Building," +
-                    "minecraft:oak_stairs,minecraft:spruce_stairs,minecraft:birch_stairs,minecraft:jungle_stairs,minecraft:acacia_stairs,minecraft:dark_oak,stairs" +
+                    "minecraft:oak_stairs,minecraft:spruce_stairs,minecraft:birch_stairs,minecraft:jungle_stairs,minecraft:acacia_stairs,minecraft:dark_oak_stairs" +
                     "minecraft:boat,minecraft:spruce_boat,minecraft:birch_boat,minecraft:jungle_boat,minecraft:acacia_boat,minecraft:dark_oak_boat"+
                     "minecraft:wooden_slab,minecraft:sign,minecraft:ladder,minecraft_stand,minecraft:trapdoor",
             "Basic Stone Building,minecraft:cobblestone_wall,minecraft:stone_stairs,minecraft:stone_slab",
@@ -87,10 +102,10 @@ public class ModConfig {
                     "minecraft:glass,minecraft:glass_pane,minecraft:iron_bars,minecraft:flint_and_steel," +
                     "minecraft:iron_trapdoor,minecraft:iron_door,minecraft:hopper",
             "Basic decoration Building,minecraft:item_frame,minecraft:book, minecraft:bookshelf",
-            "Contcrete Pulver Building,minecraft:concrete_powder",
+            "Concrete Powder Building,minecraft:concrete_powder",
             "Enchanting Building,minecraft:anvil,minecraft:enchanting_table",
-            "Brewing Building,minecraft:brewing_stand,",
-            "Basic Redstone Building,minecraft:fermented_spider_eye" +
+            "Brewing Building,minecraft:brewing_stand,minecraft:fermented_spider_eye",
+            "Basic Redstone Building," +
                     "minecraft:lever,minecraft:stone_pressure_plate,minecraft:wood_pressure_plate,minecraft:noteblock" +
                     "minecraft:heavy_weighted_pressure_plate,minecraft:light_weighted_pressure_plate," +
                     "minecraft:redstone_torch,minecraft:wood_button,minecraft:stone_button,minecraft:piston",
@@ -100,7 +115,7 @@ public class ModConfig {
             "Advanced Redstone Building," +
                     "minecraft:sticky_piston,minecraft:dispenser,minecraft:tnt,minecraft:redstone_lamp," +
                     "minecraft:tripwire_hook,minecraft:trapped_chest,minecraft:daylight_detector," +
-                    "minecraft:dropper,minecraft:repeater,minecraft:comparator,minecraft:observer,",
+                    "minecraft:dropper,minecraft:repeater,minecraft:comparator,minecraft:observer",
             "Rails Building," +
                     "minecraft:rail,minecraft:activator_rail,minecraft:detector_rail,minecraft:golden_rail," +
                     "minecraft:minecart,minecraft:chest_minecraft,minecraft:furnace_minecart," +
@@ -120,7 +135,33 @@ public class ModConfig {
             "Ruby Mining Tools,minecraft:torch,2.5",
             "Ender Mining Tools,minecraft:torch,3",
 
-            "Better Woods,minecraft:wood,2"
+            "More Woods,minecraft:wood,2,minecraft:wooden_slab,2," +
+                    "minecraft:oak_stairs,2,minecraft:spruce_stairs,2,minecraft:birch_stairs,2,minecraft:jungle_stairs,2,minecraft:acacia_stairs,2,minecraft:dark_oak_stairs,2",
+            "More Woods 2,minecraft:wood,3,minecraft:wooden_slab,2.5," +
+                    "minecraft:oak_stairs,2.5,minecraft:spruce_stairs,2.5,minecraft:birch_stairs,2.5,minecraft:jungle_stairs,2.5,minecraft:acacia_stairs,2.5,minecraft:dark_oak_stairs,2.5",
+            "More Woods 3,minecraft:wood,4,minecraft:wooden_slab,3," +
+                    "minecraft:oak_stairs,3,minecraft:spruce_stairs,3,minecraft:birch_stairs,3,minecraft:jungle_stairs,3,minecraft:acacia_stairs,3,minecraft:dark_oak_stairs,3",
+
+            "More Stone,minecraft:stonebrick,2,minecraft:stone_stairs,2,minecraft:stone_slab,2",
+            "More Stone 2,minecraft:stonebrick,3,minecraft:stone_stairs,3,minecraft:stone_slab,3",
+
+            "More Fence,minecraft:" +
+                    "fence,2,minecraft:spruce_fence,2,minecraft:birch_fence,2,minecraft:jungle_fence,2," +
+                    "minecraft:dark_oak_fence,2,minecraft:acacia_fence,2,minecraft:cobblestone_wall,2",
+            "More Concrete,minecraft:concrete_powder,2",
+            "More Chest,minecraft:chest,2,minecraft:trapped_chest,2",
+            "More Redstone Stuff," +
+                    "minecraft:piston,2,minecraft:sticky_piston,2,minecraft:dispenser,2," +
+                    "minecraft:daylight_detector,2,minecraft:dropper,2,minecraft:repeater,2," +
+                    "minecraft:comparator,2,minecraft:observer,2",
+            "More Rails,minecraft:rail,2,minecraft:activator_rail,2,minecraft:detector_rail,2,minecraft:golden_rail,2",
+            "More Hopper,minecraft:hopper,2",
+            "More Ender Eye,minecraft:ender_eye,2",
+            "More Ender Chest,minecraft:ender_chest,2",
+            "More Shulker Boxes,minecraft:purple_shulker_box,2",
+            "More Ender Diamond,levelup:ender_diamond,2",
+            "More Magma Ingot,levelup:magma_ingot,2",
+            "More Wither Ingot,levelup:wither_ingot,2"
     };
 
     public static void init() {
