@@ -37,6 +37,9 @@ public class Experience implements IExperience {
 
     @Override
     public int getExperienceOfLevel(int level) {
+        if (level < 0) {
+            return 0;
+        }
         int e = baseLevel;
         for(int i = 0; i < level; i++) {
             e += baseLevel * Math.pow(factor, i);

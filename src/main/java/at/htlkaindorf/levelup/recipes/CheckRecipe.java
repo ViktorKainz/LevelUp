@@ -46,12 +46,15 @@ public class CheckRecipe {
     public static ItemStack getCraftingResult(IRecipe r, InventoryCrafting inv, ItemStack stack) {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
         if (player != null) {
+            double amount = 0;
             for (Group g : Group.groups.values()) {
                 if (g.isUnlocked(player) && g.getAmounts().containsKey(r.getRegistryName())) {
-                    stack.setCount((int)(stack.getCount() * g.getAmounts().get(r.getRegistryName())));
-                    break;
+                    if(amount < g.getAmounts().get(r.getRegistryName())) {
+                        amount = g.getAmounts().get(r.getRegistryName());
+                    }
                 }
             }
+            stack.setCount((int)(stack.getCount() * amount));
         }
         return stack;
     }
