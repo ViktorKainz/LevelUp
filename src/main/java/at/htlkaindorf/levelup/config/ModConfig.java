@@ -15,7 +15,7 @@ public class ModConfig {
 
     @Config.Comment({
             "Group attributes are split by a , and Groups are split by a new line",
-            "Types: Mining, Crafting, Farming, Building, Fighting",
+            "Types: Mining, Fighting, Farming, Building, Crafting,",
             "Name,Type,Level"
     })
     public static String[] groups = {
@@ -28,6 +28,43 @@ public class ModConfig {
             "Sapphire Mining Tools,Mining,7",
             "Wither Mining Tools,Mining,8",
             "Ender Mining Tools,Mining,9",
+
+            "Stone Fighting Tools,Fighting,1",
+            "Iron Fighting Tools,Fighting,2",
+            "Gold Fighting Tools,Fighting,3",
+            "Diamond Fighting Tools,Fighting,4",
+            "Magma Fighting Tools,Fighting,5",
+            "Ruby Fighting Tools,Fighting,6",
+            "Sapphire Fighting Tools,Fighting,7",
+            "Wither Fighting Tools,Fighting,8",
+            "Ender Fighting Tools,Fighting,9",
+
+            "Stone Farming Tools,Farming,1",
+            "Iron Farming Tools,Farming,2",
+            "Gold Farming Tools,Farming,3",
+            "Diamond Farming Tools,Farming,4",
+            "Magma Farming Tools,Farming,5",
+            "Ruby Farming Tools,Farming,6",
+            "Sapphire Farming Tools,Farming,7",
+            "Wither Farming Tools,Farming,8",
+            "Ender Farming Tools,Farming,9",
+
+            "Basic Wood Building,Building,1",
+            "Wool Building,Building,2",
+            "Advanced Wood Building,Building,3",
+            "Basic Stone Building,Building,4",
+            "Brick Building,Building,5",
+            "Advanced Stone Building,Building,6",
+            "Iron and Glass Building,Building,7",
+            "Basic decoration Building,Building,8",
+            "Concrete Powder Building,Building,9",
+            "Enchanting Building,Building,10",
+            "Brewing Building,Building,11",
+            "Basic Redstone Building,Building,12",
+            "Advanced decoration Building,Building,13",
+            "Advanced Redstone Building,Building,14",
+            "Rails Building,Building,15",
+            "Ender Eye Crafting,Building,16",
 
             "More Woods,Crafting,1",
             "More Stone,Crafting,2",
@@ -45,24 +82,7 @@ public class ModConfig {
             "More Shulker Boxes,Crafting,14",
             "More Ender Diamond,Crafting,15",
             "More Magma Ingot,Crafting,16",
-            "More Wither Ingot,Crafting,17",
-
-            "Basic Wood Building,Building,1",
-            "Wool Building,Building,2",
-            "Advanced Wood Building,Building,3",
-            "Basic Stone Building,Building,4",
-            "Brick Building,Building,5",
-            "Advanced Stone Building,Building,6",
-            "Iron and Glass Building,Building,7",
-            "Basic decoration Building,Building,8",
-            "Concrete Powder Building,Building,9",
-            "Enchanting Building,Building,10",
-            "Brewing Building,Building,11",
-            "Basic Redstone Building,Building,12",
-            "Advanced decoration Building,Building,13",
-            "Advanced Redstone Building,Building,14",
-            "Rails Building,Building,15",
-            "Ender Eye Crafting,Building,16"
+            "More Wither Ingot,Crafting,17"
     };
 
     @Config.Comment({
@@ -74,24 +94,51 @@ public class ModConfig {
     public static String[] groupsRecipes = {
             "Stone Mining Tools,minecraft:stone_pickaxe,minecraft:stone_shovel",
             "Iron Mining Tools,minecraft:iron_pickaxe,minecraft:iron_shovel,minecraft:torch,minecraft:furnace",
-            "Gold Mining Tools,minecraft:gold_pickaxe,minecraft:gold_shovel",
+            "Gold Mining Tools,minecraft:golden_pickaxe,minecraft:golden_shovel",
             "Diamond Mining Tools,minecraft:diamond_pickaxe,minecraft:diamond_shovel",
-            "Magma Mining Tools,levelup:magma_pickaxe,levelup:magma_shovel",
-            "Ruby Mining Tools,levelup:ruby_pickaxe,levelup:ruby_shovel",
-            "Sapphire Mining Tools,levelup:sapphire_pickaxe,levelup:sapphire_shovel",
-            "Wither Mining Tools,levelup:wither_pickaxe,levelup:wither_shovel",
-            "Ender Mining Tools,levelup:ender_pickaxe,levelup:ender_shovel",
+            "Magma Mining Tools,levelup:magma/magma_pickaxe,levelup:magma/magma_shovel",
+            "Ruby Mining Tools,levelup:ruby/ruby_pickaxe,levelup:ruby/ruby_shovel",
+            "Sapphire Mining Tools,levelup:sapphire/sapphire_pickaxe,levelup:sapphire/sapphire_shovel",
+            "Wither Mining Tools,levelup:wither/wither_pickaxe,levelup:wither/wither_shovel",
+            "Ender Mining Tools,levelup:ender/ender_pickaxe,levelup:ender/ender_shovel",
+
+//            "Stone Fighting Tools,minecraft:stone_pickaxe,minecraft:stone_shovel",
+//            "Iron Fighting Tools,minecraft:iron_pickaxe,minecraft:iron_shovel,minecraft:torch,minecraft:furnace",
+//            "Gold Fighting Tools,minecraft:golden_pickaxe,minecraft:golden_shovel",
+//            "Diamond Fighting Tools,minecraft:diamond_pickaxe,minecraft:diamond_shovel",
+//            "Magma Fighting Tools,levelup:magma/magma_pickaxe,levelup:magma/_shovel",
+//            "Ruby Fighting Tools,levelup:ruby/ruby_pickaxe,levelup:ruby/ruby_shovel",
+//            "Sapphire Fighting Tools,levelup:sapphire/sapphire_pickaxe,levelup:sapphire/sapphire_shovel",
+//            "Wither Fighting Tools,levelup:wither/wither_pickaxe,levelup:wither/wither_shovel",
+//            "Ender Fighting Tools,levelup:ender/ender_pickaxe,levelup:ender/ender_shovel",
+//
+//            "Stone Farming Tools,minecraft:stone_pickaxe,minecraft:stone_shovel",
+//            "Iron Farming Tools,minecraft:iron_pickaxe,minecraft:iron_shovel,minecraft:torch,minecraft:furnace",
+//            "Gold Farming Tools,minecraft:golden_pickaxe,minecraft:golden_shovel",
+//            "Diamond Farming Tools,minecraft:diamond_pickaxe,minecraft:diamond_shovel",
+//            "Magma Farming Tools,levelup:magma/magma_pickaxe,levelup:magma/_shovel",
+//            "Ruby Farming Tools,levelup:ruby/ruby_pickaxe,levelup:ruby/ruby_shovel",
+//            "Sapphire Farming Tools,levelup:sapphire/sapphire_pickaxe,levelup:sapphire/sapphire_shovel",
+//            "Wither Farming Tools,levelup:wither/wither_pickaxe,levelup:wither/wither_shovel",
+//            "Ender Farming Tools,levelup:ender/ender_pickaxe,levelup:ender/ender_shovel",
 
             "Basic Wood Building," +
                     "minecraft:fence,minecraft:spruce_fence,minecraft:birch_fence,minecraft:jungle_fence,minecraft:dark_oak_fence,minecraft:acacia_fence," +
                     "minecraft:fence_gate,minecraft:spruce_fence_gate,minecraft:birch_fence_gate,minecraft:jungle_fence_gate,minecraft:dark_oak_fence_gate,minecraft:acacia_fence_gate," +
                     "minecraft:oak_door,minecraft:spruce_door,minecraft:birch_door,minecraft:jungle_door,minecraft:acacia_door,minecraft:dark_oak_door",
-            "Wool Building,minecraft:wool,minecraft:carpet,minecraft:bed",
+            "Wool Building," +
+                    "minecraft:black_wool,minecraft:blue_wool,minecraft:brown_wool,minecraft:cyan_wool,minecraft:gray_wool,minecraft:green_wool,minecraft:light_blue_wool,minecraft:light_gray_wool,minecraft:lime_wool,minecraft:magenta_wool,minecraft:orange_wool,minecraft:pink_wool,minecraft:purple_wool,minecraft:red_wool,minecraft:string_to_wool,minecraft:yellow_wool" +
+                    "minecraft:black_carpet,minecraft:blue_carpet,minecraft:brown_carpet,minecraft:cyan_carpet,minecraft:gray_carpet,minecraft:green_carpet,minecraft:light_blue_carpet,minecraft:light_gray_carpet,minecraft:lime_carpet,minecraft:magenta_carpet,minecraft:orange_carpet,minecraft:pink_carpet,minecraft:purple_carpet,minecraft:red_carpet,minecraft:white_carpet,minecraft:yellow_carpet" +
+                    "minecraft:black_bed,minecraft:black_bed_from_white_bed,minecraft:blue_bed,minecraft:blue_bed_from_white_bed,minecraft:brown_bed,minecraft:brown_bed_from_white_bed,minecraft:cyan_bed,minecraft:cyan_bed_from_white_bed,minecraft:gray_bed,minecraft:gray_bed_from_white_bed,minecraft:green_bed,minecraft:green_bed_from_white_bed,minecraft:light_blue_bed,minecraft:light_blue_bed_from_white_bed,minecraft:light_gray_bed,minecraft:light_gray_bed_from_white_bed,minecraft:lime_bed,minecraft:lime_bed_from_white_bed,minecraft:magenta_bed,minecraft:magenta_bed_from_white_bed,minecraft:orange_bed,minecraft:orange_bed_from_white_bed,minecraft:pink_bed,minecraft:pink_bed_from_white_bed,minecraft:purple_bed,minecraft:purple_bed_from_white_bed,minecraft:red_bed,minecraft:red_bed_from_white_bed,minecraft:white_bed,minecraft:yellow_bed,minecraft:yellow_bed_from_white_bed",
             "Advanced Wood Building," +
                     "minecraft:oak_stairs,minecraft:spruce_stairs,minecraft:birch_stairs,minecraft:jungle_stairs,minecraft:acacia_stairs,minecraft:dark_oak_stairs" +
                     "minecraft:boat,minecraft:spruce_boat,minecraft:birch_boat,minecraft:jungle_boat,minecraft:acacia_boat,minecraft:dark_oak_boat"+
-                    "minecraft:wooden_slab,minecraft:sign,minecraft:ladder,minecraft_stand,minecraft:trapdoor",
-            "Basic Stone Building,minecraft:cobblestone_wall,minecraft:stone_stairs,minecraft:stone_slab",
+                    "minecraft:acacia_wooden_slab,minecraft:birch_wooden_slab,minecraft:dark_oak_wooden_slab,minecraft:jungle_wooden_slab,minecraft:oak_wooden_slab,minecraft:spruce_wooden_slab" +
+                    "minecraft:sign,minecraft:ladder,minecraft:armor_stand,minecraft:trapdoor",
+            "Basic Stone Building," +
+                    "minecraft:cobblestone_wall,minecraft:mossy_cobblestone_wall," +
+                    "minecraft:purpur_stairs,minecraft:quartz_stairs,minecraft:red_sandstone_stairs,minecraft:sandstone_stairs,minecraft:stone_brick_stairs,minecraft:stone_stairs," +
+                    "minecraft:cobblestone_slab,minecraft:purpur_slab,minecraft:quartz_slab,minecraft:red_sandstone_slab,minecraft:sandstone_slab,minecraft:stone_brick_slab,minecraft:stone_slab",
             "Advanced Stone Building," +
                     "minecraft:mossy_cobblestone,minecraft:stonebrick," +
                     "minecraft:stone_brick_stairs,minecraft:sandstone_stairs,minecraft:red_sandstone_stairs",
@@ -101,14 +148,14 @@ public class ModConfig {
             "Iron and Glass Building," +
                     "minecraft:glass,minecraft:glass_pane,minecraft:iron_bars,minecraft:flint_and_steel," +
                     "minecraft:iron_trapdoor,minecraft:iron_door,minecraft:hopper",
-            "Basic decoration Building,minecraft:item_frame,minecraft:book, minecraft:bookshelf",
-            "Concrete Powder Building,minecraft:concrete_powder",
+            "Basic decoration Building,minecraft:item_frame,minecraft:book,minecraft:bookshelf",
+            "Concrete Powder Building,minecraft:minecraft:black_concrete_powder,minecraft:blue_concrete_powder,minecraft:brown_concrete_powder,minecraft:cyan_concrete_powder,minecraft:gray_concrete_powder,minecraft:green_concrete_powder,minecraft:light_blue_concrete_powder,minecraft:light_gray_concrete_powder,minecraft:lime_concrete_powder,minecraft:magenta_concrete_powder,minecraft:orange_concrete_powder,minecraft:pink_concrete_powder,minecraft:purple_concrete_powder,minecraft:red_concrete_powder,minecraft:white_concrete_powder,minecraft:yellow_concrete_powder",
             "Enchanting Building,minecraft:anvil,minecraft:enchanting_table",
             "Brewing Building,minecraft:brewing_stand,minecraft:fermented_spider_eye",
             "Basic Redstone Building," +
-                    "minecraft:lever,minecraft:stone_pressure_plate,minecraft:wood_pressure_plate,minecraft:noteblock" +
+                    "minecraft:lever,minecraft:stone_pressure_plate,minecraft:wooden_pressure_plate,minecraft:noteblock" +
                     "minecraft:heavy_weighted_pressure_plate,minecraft:light_weighted_pressure_plate," +
-                    "minecraft:redstone_torch,minecraft:wood_button,minecraft:stone_button,minecraft:piston",
+                    "minecraft:redstone_torch,minecraft:wooden_button,minecraft:stone_button,minecraft:piston",
             "Advanced decoration Building," +
                     "minecraft:banner,minecraft:painting,minecraft:flower_pot," +
                     "minecraft:stained_glass,minecraft:stained_glass_pane",
@@ -118,8 +165,7 @@ public class ModConfig {
                     "minecraft:dropper,minecraft:repeater,minecraft:comparator,minecraft:observer",
             "Rails Building," +
                     "minecraft:rail,minecraft:activator_rail,minecraft:detector_rail,minecraft:golden_rail," +
-                    "minecraft:minecart,minecraft:chest_minecraft,minecraft:furnace_minecart," +
-                    "minecraft:tnt_minecart,minecraft:hopper_minecart",
+                    "minecraft:minecart,minecraft:chest_minecraft,minecraft:furnace_minecart,minecraft:tnt_minecart,minecraft:hopper_minecart",
             "Ender Eye Crafting,minecraft:ender_eye,minecraft:ender_chest"
 
     };
@@ -135,20 +181,32 @@ public class ModConfig {
             "Ruby Mining Tools,minecraft:torch,2.5",
             "Ender Mining Tools,minecraft:torch,3",
 
-            "More Woods,minecraft:wood,2,minecraft:wooden_slab,2," +
+            "More Woods,minecraft:" +
+                    "minecraft:acacia_planks,2,minecraft:birch_planks,2,minecraft:dark_oak_planks,2,minecraft:jungle_planks,2,minecraft:oak_planks,2,minecraft:spruce_planks,2," +
+                    "minecraft:acacia_wooden_slab,2,minecraft:birch_wooden_slab,2,minecraft:dark_oak_wooden_slab,2,minecraft:jungle_wooden_slab,2,minecraft:oak_wooden_slab,2,minecraft:spruce_wooden_slab,2," +
                     "minecraft:oak_stairs,2,minecraft:spruce_stairs,2,minecraft:birch_stairs,2,minecraft:jungle_stairs,2,minecraft:acacia_stairs,2,minecraft:dark_oak_stairs,2",
-            "More Woods 2,minecraft:wood,3,minecraft:wooden_slab,2.5," +
+            "More Woods 2,minecraft:" +
+                    "minecraft:acacia_planks,3,minecraft:birch_planks,3,minecraft:dark_oak_planks,3,minecraft:jungle_planks,3,minecraft:oak_planks,3,minecraft:spruce_planks,3," +
+                    "minecraft:acacia_wooden_slab,2.5,minecraft:birch_wooden_slab,2.5,minecraft:dark_oak_wooden_slab,2.5,minecraft:jungle_wooden_slab,2.5,minecraft:oak_wooden_slab,2.5,minecraft:spruce_wooden_slab,2.5," +
                     "minecraft:oak_stairs,2.5,minecraft:spruce_stairs,2.5,minecraft:birch_stairs,2.5,minecraft:jungle_stairs,2.5,minecraft:acacia_stairs,2.5,minecraft:dark_oak_stairs,2.5",
-            "More Woods 3,minecraft:wood,4,minecraft:wooden_slab,3," +
+            "More Woods 3," +
+                    "minecraft:acacia_planks,4,minecraft:birch_planks,4,minecraft:dark_oak_planks,4,minecraft:jungle_planks,4,minecraft:oak_planks,4,minecraft:spruce_planks,4," +
+                    "minecraft:acacia_wooden_slab,3,minecraft:birch_wooden_slab,3,minecraft:dark_oak_wooden_slab,3,minecraft:jungle_wooden_slab,3,minecraft:oak_wooden_slab,3,minecraft:spruce_wooden_slab,3," +
                     "minecraft:oak_stairs,3,minecraft:spruce_stairs,3,minecraft:birch_stairs,3,minecraft:jungle_stairs,3,minecraft:acacia_stairs,3,minecraft:dark_oak_stairs,3",
 
-            "More Stone,minecraft:stonebrick,2,minecraft:stone_stairs,2,minecraft:stone_slab,2",
-            "More Stone 2,minecraft:stonebrick,3,minecraft:stone_stairs,3,minecraft:stone_slab,3",
+            "More Stone," +
+                    "minecraft:chiseled_stonebrick,2,minecraft:mossy_stonebrick,2,minecraft:stonebrick,2," +
+                    "minecraft:minecraft:red_sandstone_stairs,2,minecraft:sandstone_stairs,2,minecraft:stone_stairs,2," +
+                    "minecraft:cobblestone_slab,2,minecraft:red_sandstone_slab,2,minecraft:sandstone_slab,2,minecraft:stone_slab,2",
+            "More Stone 2," +
+                    "minecraft:chiseled_stonebrick,3,minecraft:mossy_stonebrick,3,minecraft:stonebrick,3," +
+                    "minecraft:red_sandstone_stairs,3,minecraft:sandstone_stairs,3,minecraft:stone_stairs,3," +
+                    "minecraft:cobblestone_slab,3,minecraft:red_sandstone_slab,3,minecraft:sandstone_slab,3,minecraft:stone_slab,3",
 
             "More Fence,minecraft:" +
                     "fence,2,minecraft:spruce_fence,2,minecraft:birch_fence,2,minecraft:jungle_fence,2," +
-                    "minecraft:dark_oak_fence,2,minecraft:acacia_fence,2,minecraft:cobblestone_wall,2",
-            "More Concrete,minecraft:concrete_powder,2",
+                    "minecraft:dark_oak_fence,2,minecraft:acacia_fence,2,minecraft:cobblestone_wall,2,minecraft:mossy_cobblestone_wall,2",
+            "More Concrete,minecraft:black_concrete_powder,2,minecraft:blue_concrete_powder,2,minecraft:brown_concrete_powder,2,minecraft:cyan_concrete_powder,2,minecraft:gray_concrete_powder,2,minecraft:green_concrete_powder,2,minecraft:light_blue_concrete_powder,2,minecraft:light_gray_concrete_powder,2,minecraft:lime_concrete_powder,2,minecraft:magenta_concrete_powder,2,minecraft:orange_concrete_powder,2,minecraft:pink_concrete_powder,2,minecraft:purple_concrete_powder,2,minecraft:red_concrete_powder,2,minecraft:white_concrete_powder,2,minecraft:yellow_concrete_powder,2",
             "More Chest,minecraft:chest,2,minecraft:trapped_chest,2",
             "More Redstone Stuff," +
                     "minecraft:piston,2,minecraft:sticky_piston,2,minecraft:dispenser,2," +
@@ -159,9 +217,9 @@ public class ModConfig {
             "More Ender Eye,minecraft:ender_eye,2",
             "More Ender Chest,minecraft:ender_chest,2",
             "More Shulker Boxes,minecraft:purple_shulker_box,2",
-            "More Ender Diamond,levelup:ender_diamond,2",
-            "More Magma Ingot,levelup:magma_ingot,2",
-            "More Wither Ingot,levelup:wither_ingot,2"
+            "More Ender Diamond,levelup:ender/ender_diamond,2",
+            "More Magma Ingot,levelup:magma/magma_ingot,2",
+            "More Wither Ingot,levelup:wither/wither_ingot,2"
     };
 
     public static void init() {
