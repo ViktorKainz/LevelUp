@@ -46,7 +46,7 @@ public class CheckRecipe {
     public static ItemStack getCraftingResult(IRecipe r, InventoryCrafting inv, ItemStack stack) {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
         if (player != null && stack.isStackable()) {
-            double amount = 0;
+            double amount = 1;
             for (Group g : Group.groups.values()) {
                 if (g.isUnlockedBy(player) && g.getAmounts().containsKey(r.getRegistryName())) {
                     if(amount < g.getAmounts().get(r.getRegistryName())) {

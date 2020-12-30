@@ -47,7 +47,6 @@ public class ExperienceHandler {
             List<IRecipe> unlocked = new ArrayList<>();
             for (IRecipe r : recipes) {
                 if(items.contains(r.getRegistryName())) {
-                    System.out.println(r.getRegistryName());
                     unlocked.add(r);
                 }
             }
@@ -101,16 +100,6 @@ public class ExperienceHandler {
     }
 
     @SubscribeEvent
-    public void onPlayerLogsIn(PlayerEvent.PlayerLoggedInEvent event) {
-        EntityPlayer player = event.player;
-        IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
-        for (ExperienceType type : ExperienceType.values()) {
-            player.sendMessage(new TextComponentString(
-                    String.format("You have %d %s experience.", experience.getExperience(type), type)));
-        }
-    }
-
-    @SubscribeEvent
     public void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
         EntityPlayer player = event.getEntityPlayer();
         IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
@@ -151,7 +140,6 @@ public class ExperienceHandler {
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             addExperience(player, ExperienceType.Fighting, (int)event.getAmount());
-            System.out.println((int)event.getAmount());
         }
     }
 
@@ -173,9 +161,6 @@ public class ExperienceHandler {
             toolTip.add(1,"Level " + level);
             toolTip.add(2,(experience.getExperience(ExperienceType.Tool) - experience.getExperienceOfLevel(level-1)) + "/"
                     + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level-1)));
-            System.out.println("Experience:" + experience.getExperience(ExperienceType.Tool));
-            System.out.println("Experience of level " + (level - 1) + ": " + experience.getExperienceOfLevel(level-1));
-            System.out.println("Experience of level " + (level) + ": " + experience.getExperienceOfLevel(level));
         }
     }
 }
