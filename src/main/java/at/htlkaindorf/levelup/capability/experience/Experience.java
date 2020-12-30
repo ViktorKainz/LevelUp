@@ -7,7 +7,6 @@ public class Experience implements IExperience {
 
     private final Map<ExperienceType, Integer> experience = new HashMap<>();
     private final int baseLevel = 100;
-    private final double factor = 1.1;
 
     @Override
     public void add(ExperienceType type, int points) {
@@ -26,23 +25,21 @@ public class Experience implements IExperience {
 
     @Override
     public int getLevel(ExperienceType type) {
-        int l = 0;
+        int l = 1;
         int e = baseLevel;
         while (getExperience(type) > e) {
-            e += baseLevel * Math.pow(factor, l);
+            e += baseLevel * l;
             l++;
         }
-        return l;
+        return l-1;
     }
 
     @Override
     public int getExperienceOfLevel(int level) {
-        if (level < 0) {
-            return 0;
-        }
+        level++;
         int e = baseLevel;
-        for(int i = 0; i < level; i++) {
-            e += baseLevel * Math.pow(factor, i);
+        for(int i = 2; i < level; i++) {
+            e += baseLevel * i;
         }
         return e;
     }

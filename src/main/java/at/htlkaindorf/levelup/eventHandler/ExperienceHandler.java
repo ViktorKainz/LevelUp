@@ -8,12 +8,10 @@ import at.htlkaindorf.levelup.config.Group;
 import com.google.common.collect.Lists;
 import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementManager;
-import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagList;
@@ -113,11 +111,6 @@ public class ExperienceHandler {
     }
 
     @SubscribeEvent
-    public void onItemPickUp(PlayerEvent.ItemPickupEvent event) {
-        EntityPlayer player = event.player;
-    }
-
-    @SubscribeEvent
     public void onPlayerClone(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
         EntityPlayer player = event.getEntityPlayer();
         IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
@@ -143,9 +136,8 @@ public class ExperienceHandler {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        if (event.getState().getMaterial().equals(Material.ROCK)) {
-            addExperience(player, ExperienceType.Mining, 1);
-        }
+        addExperience(player, ExperienceType.Mining, ExperienceDistributor.amountFromBlock(event.getState(),ExperienceType.Mining));
+        addExperience(player, ExperienceType.Farming, ExperienceDistributor.amountFromBlock(event.getState(),ExperienceType.Farming));
     }
 
     @SubscribeEvent
@@ -158,11 +150,8 @@ public class ExperienceHandler {
     public void onLivingAttack(LivingAttackEvent event) {
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            addExperience(player, ExperienceType.Fighting, 1);
-            Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
-            if (main instanceof ItemSword) {
-                addExperience(player.getHeldItemMainhand(), 5);
-            }
+            addExperience(player, ExperienceType.Fighting, (int)event.getAmount());
+            System.out.println((int)event.getAmount());
         }
     }
 
@@ -184,6 +173,9 @@ public class ExperienceHandler {
             toolTip.add(1,"Level " + level);
             toolTip.add(2,(experience.getExperience(ExperienceType.Tool) - experience.getExperienceOfLevel(level-1)) + "/"
                     + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level-1)));
+            System.out.println("Experience:" + experience.getExperience(ExperienceType.Tool));
+            System.out.println("Experience of level " + (level - 1) + ": " + experience.getExperienceOfLevel(level-1));
+            System.out.println("Experience of level " + (level) + ": " + experience.getExperienceOfLevel(level));
         }
     }
 }
