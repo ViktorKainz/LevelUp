@@ -131,7 +131,7 @@ public class LevelUpCommand extends CommandBase {
         Map<String, Group> groupMap = new HashMap<>();
         Map<String, Group> g = Group.getGroups();
         g.keySet().forEach(v -> {
-            if(g.get(v).isUnlocked(p))
+            if(g.get(v).isUnlockedBy(p))
             {
                 groupMap.put(v,g.get(v));
             }

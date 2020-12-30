@@ -34,7 +34,7 @@ public class CheckRecipe {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
         if (player != null) {
             for (Group g : Group.groups.values()) {
-                if (g.isUnlocked(player) && g.getItems().contains(r.getRegistryName())) {
+                if (g.isUnlockedBy(player) && g.getItems().contains(r.getRegistryName())) {
                     return true;
                 }
             }
@@ -45,10 +45,10 @@ public class CheckRecipe {
 
     public static ItemStack getCraftingResult(IRecipe r, InventoryCrafting inv, ItemStack stack) {
         EntityPlayer player = CheckRecipe.findPlayer(inv);
-        if (player != null) {
+        if (player != null && stack.isStackable()) {
             double amount = 0;
             for (Group g : Group.groups.values()) {
-                if (g.isUnlocked(player) && g.getAmounts().containsKey(r.getRegistryName())) {
+                if (g.isUnlockedBy(player) && g.getAmounts().containsKey(r.getRegistryName())) {
                     if(amount < g.getAmounts().get(r.getRegistryName())) {
                         amount = g.getAmounts().get(r.getRegistryName());
                     }

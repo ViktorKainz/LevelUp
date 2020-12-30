@@ -35,7 +35,7 @@ public class Group {
         return String.format("Group: %s Type: %s Level: %d Items: %s", name, type.toString(), level, resources);
     }
 
-    public boolean isUnlocked(EntityPlayer player) {
+    public boolean isUnlockedBy(EntityPlayer player) {
         return player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null).getLevel(type) >= level;
     }
 
