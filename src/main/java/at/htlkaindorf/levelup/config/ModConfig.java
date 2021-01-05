@@ -5,10 +5,7 @@ import at.htlkaindorf.levelup.capability.experience.ExperienceType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Config;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Config(modid = LevelUp.MODID, name = "levelup")
 public class ModConfig {
@@ -245,7 +242,7 @@ public class ModConfig {
         Map<String, Group> groupMap = new HashMap<>();
         for (int i = 0; i < groups.length; i++) {
             String[] group = groups[i].split(",");
-            groupMap.put(group[0], new Group(group[0], ExperienceType.valueOf(group[1]), Integer.parseInt(group[2])));
+            groupMap.put(group[0], new Group(group[0], ExperienceType.valueOf(group[1].toLowerCase()), Integer.parseInt(group[2])));
         }
         for (int i = 0; i < groupsRecipes.length; i++) {
             List<ResourceLocation> resources = new ArrayList<>();

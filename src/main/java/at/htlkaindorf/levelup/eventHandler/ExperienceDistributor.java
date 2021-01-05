@@ -28,9 +28,9 @@ public class ExperienceDistributor {
 
     public static int amountFromBlock(IBlockState b, ExperienceType type) {
         switch (type) {
-            case Mining:
+            case mining:
                 return MINING_EXPERIENCE.get(b.getBlock()) != null ? MINING_EXPERIENCE.get(b.getBlock()) : b.getMaterial().equals(Material.ROCK) ? 1 : 0;
-            case Farming:
+            case farming:
                 return b.getBlock() instanceof BlockCrops || b.getBlock() instanceof BlockPumpkin || b.getBlock() instanceof BlockMelon ? 1 : 0;
             default: return 0;
         }
