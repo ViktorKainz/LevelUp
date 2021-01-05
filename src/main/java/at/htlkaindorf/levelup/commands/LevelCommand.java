@@ -32,20 +32,34 @@ public class LevelCommand extends CommandBase {
         ExperienceType type = null;
         try {
             type = ExperienceType.valueOf(args[0].toLowerCase());
-        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException ex) {
-
-        }
+        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException ex) {}
         if (sender instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) sender;
             IExperience experience = player.getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
-            if(type == null || type == ExperienceType.tool) {
-                for(ExperienceType t : ExperienceType.values()) {
-                    if(t != ExperienceType.tool) {
-                        player.sendMessage(new TextComponentString(t + ": " + experience.getLevel(t)));
+            player.sendMessage(new TextComponentString("Level:"));
+            for (ExperienceType t : type == null || type == ExperienceType.tool ? ExperienceType.values() : new ExperienceType[]{type}) {
+                if (t != ExperienceType.tool) {
+                    int level = experience.getLevel(t);
+                    if (level == 0) {
+                        player.sendMessage(new TextComponentString(String.format("%s: lv%d (%d/%d)",
+                                t, experience.getLevel(t), 100 + experience.getExperience(t)
+                                - experience.getExperienceOfLevel(experience.getLevel(t) - 1),
+                                100 + experience.getExperienceOfLevel(experience.getLevel(t))
+                                - experience.getExperienceOfLevel(experience.getLevel(t) - 1))));
+                    } else if (level == 1) {
+                        player.sendMessage(new TextComponentString(String.format("%s: lv%d (%d/%d)",
+                                t, experience.getLevel(t), experience.getExperience(t)
+                                - experience.getExperienceOfLevel(experience.getLevel(t) - 1),
+                                100 + experience.getExperienceOfLevel(experience.getLevel(t))
+                                - experience.getExperienceOfLevel(experience.getLevel(t) - 1))));
+                    } else {
+                        player.sendMessage(new TextComponentString(String.format("%s: lv%d (%d/%d)",
+                                t, experience.getLevel(t), experience.getExperience(t) - 100
+                                - experience.getExperienceOfLevel(experience.getLevel(t) - 1),
+                                experience.getExperienceOfLevel(experience.getLevel(t))
+                                - experience.getExperienceOfLevel(experience.getLevel(t) - 1))));
                     }
                 }
-            } else {
-                player.sendMessage(new TextComponentString(type + ": " + experience.getLevel(type)));
             }
         }
     }

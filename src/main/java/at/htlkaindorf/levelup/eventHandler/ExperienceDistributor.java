@@ -1,10 +1,7 @@
 package at.htlkaindorf.levelup.eventHandler;
 
 import at.htlkaindorf.levelup.capability.experience.ExperienceType;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
-import net.minecraft.block.BlockMelon;
-import net.minecraft.block.BlockPumpkin;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 
@@ -31,7 +28,10 @@ public class ExperienceDistributor {
             case mining:
                 return MINING_EXPERIENCE.get(b.getBlock()) != null ? MINING_EXPERIENCE.get(b.getBlock()) : b.getMaterial().equals(Material.ROCK) ? 1 : 0;
             case farming:
-                return b.getBlock() instanceof BlockCrops || b.getBlock() instanceof BlockPumpkin || b.getBlock() instanceof BlockMelon ? 1 : 0;
+                return b.getBlock() instanceof BlockCrops ||
+                       b.getBlock() instanceof BlockPumpkin ||
+                       b.getBlock() instanceof BlockMelon ||
+                       b.getBlock() instanceof BlockLog ? 1 : 0;
             default: return 0;
         }
     }

@@ -10,9 +10,7 @@ import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
@@ -133,6 +131,7 @@ public class ExperienceHandler {
     public void onUseHoe(UseHoeEvent event) {
         EntityPlayer player = event.getEntityPlayer();
         addExperience(player, ExperienceType.farming, 1);
+        addExperience(player.getHeldItemMainhand(), 5);
     }
 
     @SubscribeEvent
@@ -140,6 +139,10 @@ public class ExperienceHandler {
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             addExperience(player, ExperienceType.fighting, (int) event.getAmount());
+            Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
+            if (main instanceof ItemSword || main instanceof ItemBow) {
+                addExperience(player.getHeldItemMainhand(), 5);
+            }
         }
     }
 
@@ -147,7 +150,7 @@ public class ExperienceHandler {
     public void onHarvestDrop(BlockEvent.HarvestDropsEvent event) {
         EntityPlayer player = event.getHarvester();
         Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
-        if (main instanceof ItemTool) {
+        if (main instanceof ItemTool || main instanceof ItemHoe) {
             addExperience(player.getHeldItemMainhand(), 5);
         }
     }
@@ -159,8 +162,16 @@ public class ExperienceHandler {
             List<String> toolTip = event.getToolTip();
             int level = experience.getLevel(ExperienceType.tool);
             toolTip.add(1, "Level " + level);
-            toolTip.add(2, (experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1)) + "/"
-                    + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
+            if(level == 0) {
+                toolTip.add(2, (100 + experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1)) + "/"
+                        + (100 + experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
+            } else if(level == 1) {
+                toolTip.add(2, (experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1)) + "/"
+                        + (100 + experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
+            } else {
+                toolTip.add(2, (experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1) - 100) + "/"
+                        + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
+            }
         }
     }
 }
