@@ -8,13 +8,6 @@ import at.htlkaindorf.levelup.config.Group;
 import com.google.common.collect.Lists;
 import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementManager;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -24,7 +17,6 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
@@ -36,7 +28,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
-import org.lwjgl.opengl.GL11;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -134,11 +125,7 @@ public class ExperienceHandler {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        int mining = ExperienceDistributor.amountFromBlock(event.getState(), ExperienceType.mining);
-        if(mining > 0) {
-            addExperience(player, ExperienceType.mining, mining);
-            //renderExperience(mining, event.getPos());
-        }
+        addExperience(player, ExperienceType.mining, ExperienceDistributor.amountFromBlock(event.getState(), ExperienceType.mining));
         addExperience(player, ExperienceType.farming, ExperienceDistributor.amountFromBlock(event.getState(), ExperienceType.farming));
     }
 
@@ -175,49 +162,5 @@ public class ExperienceHandler {
             toolTip.add(2, (experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1)) + "/"
                     + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
         }
-    }
-
-    @SubscribeEvent
-    public void onRenderWorldLast(RenderWorldLastEvent event) {
-        String str = "Exp";
-        FontRenderer fontrenderer = Minecraft.getMinecraft().fontRenderer;
-        EntityPlayer player = Minecraft.getMinecraft().player;
-        double x = player.posX + 0.5;
-        double y = player.posY + 0.5;
-        double z = player.posZ + 0.5;
-        RenderManager renderManager = Minecraft.getMinecraft().getRenderManager();
-        float f = 1.6F;
-        float f1 = 0.016666668F * f;
-        GlStateManager.pushMatrix();
-        GlStateManager.translate((float) x + 0.0F, (float) y + 1, (float) z);
-        GL11.glNormal3f(0.0F, 1.0F, 0.0F);
-        GlStateManager.rotate(-renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
-        GlStateManager.rotate(renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
-        GlStateManager.scale(-f1, -f1, f1);
-        GlStateManager.disableLighting();
-        GlStateManager.depthMask(false);
-        GlStateManager.disableDepth();
-        GlStateManager.enableBlend();
-        GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder worldrenderer = tessellator.getBuffer();
-        int i = 0;
-        int j = fontrenderer.getStringWidth(str) / 2;
-        GlStateManager.disableTexture2D();
-        worldrenderer.begin(7, DefaultVertexFormats.POSITION_COLOR);
-        worldrenderer.pos((double) (-j - 1), (double) (-1 + i), 0.0D).color(0.0F, 0.0F, 0.0F, 0.25F).endVertex();
-        worldrenderer.pos((double) (-j - 1), (double) (8 + i), 0.0D).color(0.0F, 0.0F, 0.0F, 0.25F).endVertex();
-        worldrenderer.pos((double) (j + 1), (double) (8 + i), 0.0D).color(0.0F, 0.0F, 0.0F, 0.25F).endVertex();
-        worldrenderer.pos((double) (j + 1), (double) (-1 + i), 0.0D).color(0.0F, 0.0F, 0.0F, 0.25F).endVertex();
-        tessellator.draw();
-        GlStateManager.enableTexture2D();
-        fontrenderer.drawString(str, -fontrenderer.getStringWidth(str) / 2, i, 553648127);
-        GlStateManager.enableDepth();
-        GlStateManager.depthMask(true);
-        fontrenderer.drawString(str, -fontrenderer.getStringWidth(str) / 2, i, -1);
-        GlStateManager.enableLighting();
-        GlStateManager.disableBlend();
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        GlStateManager.popMatrix();
     }
 }
