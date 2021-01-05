@@ -4,7 +4,9 @@ import at.htlkaindorf.levelup.config.Group;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -20,7 +22,7 @@ import java.util.*;
 
 public class LevelUpCommand extends CommandBase {
 
-    private final int groupsInAPage = 3;
+    private final int groupsInAPage = 2;
     private int page = 1;
 
     @Override
@@ -50,11 +52,31 @@ public class LevelUpCommand extends CommandBase {
             neededPages = (groups.size()/groupsInAPage) + (groups.size()%groupsInAPage==0?0:1);
             List<String> keys = new ArrayList<>(groups.keySet());
 
-            p.sendMessage(new TextComponentString("Your unlocks! Page: " + page + " of " + neededPages).setStyle(new Style().setColor(TextFormatting.BLUE)));
+            for(int i = 0; i<20;i++)
+            {
+                p.sendMessage(new TextComponentString(""));
+            }
+
+            if(neededPages == 0)
+            {
+                page = 1;
+                p.sendMessage(new TextComponentString("Your unlocks! Page: " + page + " of 1").setStyle(new Style().setColor(TextFormatting.BLUE)));
+                p.sendMessage(new TextComponentString("You have nothing unlocked yet!"));
+                return;
+            }
+            else
+            {
+                if(page > neededPages)
+                {
+                    page = neededPages;
+                }
+                p.sendMessage(new TextComponentString("Your unlocks! Page: " + page + " of " + neededPages).setStyle(new Style().setColor(TextFormatting.BLUE)));
+            }
 
             for(int pageCounter = page*groupsInAPage-groupsInAPage; pageCounter <= page*groupsInAPage-1; pageCounter++)
             {
                 try {
+
                     String currentGroupKey = keys.get(pageCounter);
                     p.sendMessage(new TextComponentString("Category " + currentGroupKey).setStyle(new Style().setColor(TextFormatting.RED)));
                     groups.get(currentGroupKey).getItems().forEach(i -> {
@@ -68,15 +90,10 @@ public class LevelUpCommand extends CommandBase {
                 }
                 catch (Exception ex)
                 {
-                    if(neededPages == 0)
-                    {
-                        p.sendMessage(new TextComponentString("You have nothing unlocked yet!"));
-                    }
+
                 }
             }
 
-            System.out.println(page);
-            System.out.println(neededPages);
             if(neededPages == 1)
             {
                 p.sendMessage(getMenuString(true,true));
@@ -104,9 +121,11 @@ public class LevelUpCommand extends CommandBase {
 
         Style nextPageStyle = new Style().setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/levelup "+(page+1))).setColor(TextFormatting.GREEN).setUnderlined(true);
         Style previousPageStyle = new Style().setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/levelup "+(page-1))).setColor(TextFormatting.GREEN).setUnderlined(true);
+        Style spaceStyle = new Style().setUnderlined(false);
 
         previousPage.setStyle(previousPageStyle);
         nextPage.setStyle(nextPageStyle);
+        space.setStyle(spaceStyle);
 
 
         if(!firstPage && !lastPage)

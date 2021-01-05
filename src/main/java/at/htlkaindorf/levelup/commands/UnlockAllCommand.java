@@ -41,7 +41,7 @@ public class UnlockAllCommand extends CommandBase {
             }
             catch (Exception ex)
             {
-                System.out.println("Hi");
+                ex.printStackTrace();
             }
             Map<String, Group> groups = Group.getGroups();
             EntityPlayer finalP = p;
@@ -52,7 +52,7 @@ public class UnlockAllCommand extends CommandBase {
     @Override
     public boolean checkPermission(@Nonnull MinecraftServer server,@Nonnull ICommandSender sender) {
         EntityPlayer p = (EntityPlayer) sender;
-        return p.canUseCommand(2,"");
+        return p.canUseCommand(1,"");
     }
 
     @Override
