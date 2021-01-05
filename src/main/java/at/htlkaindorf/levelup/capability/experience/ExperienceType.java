@@ -1,10 +1,10 @@
 package at.htlkaindorf.levelup.capability.experience;
 
 public enum ExperienceType {
-    Mining,
-    Crafting,
-    Farming,
-    Building,
-    Fighting,
-    Tool
+    mining,
+    crafting,
+    farming,
+    building,
+    fighting,
+    tool
 }
