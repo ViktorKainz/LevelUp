@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "III",
-    "ISI",
+    "INI",
     "III"
   ],
   "key": {
     "I": {
       "item": "minecraft:iron_ingot"
     },
-    "S": {
-      "item": "minecraft:skull",
-      "data": 1
+    "N": {
+      "item": "minecraft:nether_star"
     }
   },
   "result": {
