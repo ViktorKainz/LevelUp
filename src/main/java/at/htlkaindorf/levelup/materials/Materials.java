@@ -19,7 +19,7 @@ public class Materials {
     public static final ToolMaterial SAPPHIRE_TOOL_MATERIAL = EnumHelper.addToolMaterial("SAPPHIRE",
             4, 2500, 12F, 4.0F, 20); //comparison to diamond: DIAMOND(3, 1561, 8.0F, 3.0F, 10)
     public static final ToolMaterial WITHER_TOOL_MATERIAL = EnumHelper.addToolMaterial("WITHER",
-            4, 6000, 30.0F, 8.0F, 40);
+            5, 6000, 30.0F, 20.0F, 40);
 
     //ArmorMaterial
     public static final ArmorMaterial MAGMA_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("MAGMA",
