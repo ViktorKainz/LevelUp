@@ -6,8 +6,6 @@ import at.htlkaindorf.levelup.capability.experience.ExperienceType;
 import at.htlkaindorf.levelup.capability.experience.IExperience;
 import at.htlkaindorf.levelup.config.Group;
 import com.google.common.collect.Lists;
-import net.minecraft.advancements.AdvancementList;
-import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
@@ -16,18 +14,14 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistry;
 
-import java.lang.reflect.Field;
 import java.util.*;
 
 @Mod.EventBusSubscriber(modid = LevelUp.MODID)
@@ -81,19 +75,6 @@ public class ExperienceHandler {
             if (!t) {
                 l.removeTag(i);
             }
-        }
-    }
-
-    @SubscribeEvent
-    public void onWorldload(WorldEvent.Load event) {
-        try {
-            Field field = ObfuscationReflectionHelper.findField(AdvancementManager.class, "field_192784_c");
-            AdvancementList l = (AdvancementList) field.get(null);
-            Set<ResourceLocation> r = new HashSet<>();
-            r.add(new ResourceLocation("minecraft:recipes/root"));
-            l.removeAll(r);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
         }
     }
 
@@ -152,26 +133,6 @@ public class ExperienceHandler {
         Item main = player != null ? player.getHeldItemMainhand() != null ? player.getHeldItemMainhand().getItem() : null : null;
         if (main instanceof ItemTool || main instanceof ItemHoe) {
             addExperience(player.getHeldItemMainhand(), 5);
-        }
-    }
-
-    @SubscribeEvent
-    public void onToolTip(ItemTooltipEvent event) {
-        IExperience experience = event.getItemStack().getCapability(ExperienceProvider.EXPERIENCE_CAP, null);
-        if (experience != null) {
-            List<String> toolTip = event.getToolTip();
-            int level = experience.getLevel(ExperienceType.tool);
-            toolTip.add(1, "Level " + level);
-            if(level == 0) {
-                toolTip.add(2, (100 + experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1)) + "/"
-                        + (100 + experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
-            } else if(level == 1) {
-                toolTip.add(2, (experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1)) + "/"
-                        + (100 + experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
-            } else {
-                toolTip.add(2, (experience.getExperience(ExperienceType.tool) - experience.getExperienceOfLevel(level - 1) - 100) + "/"
-                        + (experience.getExperienceOfLevel(level) - experience.getExperienceOfLevel(level - 1)));
-            }
         }
     }
 }

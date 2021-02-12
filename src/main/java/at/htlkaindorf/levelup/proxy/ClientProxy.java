@@ -1,7 +1,9 @@
 package at.htlkaindorf.levelup.proxy;
 
+import at.htlkaindorf.levelup.eventHandler.ClientEventHandler;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -18,6 +20,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preinit(FMLPreInitializationEvent event) {
         super.preinit(event);
+        MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
     }
 
     @Override
