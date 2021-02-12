@@ -11,9 +11,9 @@ import java.lang.reflect.Field;
 
 public class CheckRecipe {
 
-    private static final Field eventHandlerField = ObfuscationReflectionHelper.findField(InventoryCrafting.class, "eventHandler");
-    private static final Field containerPlayerPlayerField = ObfuscationReflectionHelper.findField(ContainerPlayer.class, "player");
-    private static final Field slotCraftingPlayerField = ObfuscationReflectionHelper.findField(SlotCrafting.class, "player");
+    private static final Field eventHandlerField = ObfuscationReflectionHelper.findField(InventoryCrafting.class, "field_70465_c");
+    private static final Field containerPlayerPlayerField = ObfuscationReflectionHelper.findField(ContainerPlayer.class, "field_82862_h");
+    private static final Field slotCraftingPlayerField = ObfuscationReflectionHelper.findField(SlotCrafting.class, "field_75238_b");
 
     private static EntityPlayer findPlayer(InventoryCrafting inv) {
         try {
